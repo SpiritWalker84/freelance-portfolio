@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="neon">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/neon.css">
 </head>
 <body>
   <!-- TODO: замени TELEGRAM_USERNAME на свой ник в Telegram (без @) -->
@@ -450,5 +451,10 @@
 
   <script src="js/signal-rain.js"></script>
   <script src="js/main.js"></script>
+
+  <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить оформление">
+    <span class="theme-toggle__dot" aria-hidden="true"></span>
+    <span id="themeToggleLabel">Неон: вкл</span>
+  </button>
 </body>
 </html>
