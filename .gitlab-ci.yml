@@ -1,0 +1,12 @@
+# GitLab Pages: отдаёт содержимое папки public/ как статический сайт
+# Документация: https://docs.gitlab.com/ee/user/project/pages/
+
+pages:
+  stage: deploy
+  script:
+    - echo "Deploying portfolio to GitLab Pages..."
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
