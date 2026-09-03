@@ -7,107 +7,212 @@
   <meta name="description" content="Фриланс: Telegram/VK-боты, AI-агенты, парсеры, FastAPI и лендинги под ключ. Кейсы с деплоем и ссылками на GitHub.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- TODO: замени TELEGRAM_USERNAME и KWORK_URL ниже на свои -->
-  <header class="header">
+  <!-- TODO: замени TELEGRAM_USERNAME на свой ник в Telegram (без @) -->
+
+  <header class="header" id="header">
     <div class="container header__inner">
       <a href="#" class="logo">
-        <span class="logo__name">Ринат</span>
-        <span class="logo__tag">Python · Bots · AI · FastAPI</span>
+        <div class="logo__mark" aria-hidden="true"></div>
+        <div class="logo__text">
+          <span class="logo__name">Signal</span>
+          <span class="logo__tag">rinat · automation</span>
+        </div>
       </a>
       <nav class="nav" id="nav">
         <a href="#services">Услуги</a>
         <a href="#cases">Кейсы</a>
-        <a href="#process">Как работаю</a>
-        <a href="#contact">Связаться</a>
+        <a href="#visual">Визуал</a>
+        <a href="#process">Процесс</a>
+        <a href="#contact">Контакт</a>
       </nav>
       <div class="header__actions">
         <a href="https://github.com/SpiritWalker84" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
         <a href="https://t.me/TELEGRAM_USERNAME" class="btn btn--primary" target="_blank" rel="noopener">Telegram</a>
       </div>
-      <button class="menu-toggle" id="menuToggle" aria-label="Меню">☰</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Меню">Menu</button>
     </div>
   </header>
 
   <section class="hero">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="container hero__grid">
-      <div class="reveal">
-        <p class="hero__label">Фриланс · под ключ</p>
-        <h1 class="hero__title">Боты, AI и автоматизация, которые экономят время бизнесу</h1>
+    <canvas class="hero__rain" id="signalRain" aria-hidden="true"></canvas>
+    <div class="hero__scanlines" aria-hidden="true"></div>
+    <div class="hero__grid-bg" aria-hidden="true"></div>
+    <div class="hero__orb" aria-hidden="true"></div>
+    <div class="hero__watermark" aria-hidden="true">AUTO</div>
+
+    <div class="container hero__layout">
+      <div class="hero__main reveal">
+        <div class="prod-label">Freelance / full cycle</div>
+        <h1 class="hero__title">Боты и&nbsp;автоматизация,<br>которые <em class="glitch" data-text="работают">работают</em></h1>
         <p class="hero__lead">
-          Делаю Telegram/VK-ботов, парсеры, интеграции и лендинги с формами заявок.
-          От прототипа до деплоя: Python, FastAPI, Docker, React.
+          Telegram/VK-боты, AI-агенты, парсеры и лендинги с backend.
+          От брифа до деплоя — Python, FastAPI, Docker, React.
         </p>
         <div class="hero__actions">
           <a href="https://t.me/TELEGRAM_USERNAME" class="btn btn--primary" target="_blank" rel="noopener">Обсудить задачу</a>
-          <a href="https://kwork.ru/user/TELEGRAM_USERNAME" class="btn btn--ghost" target="_blank" rel="noopener">Профиль на Kwork</a>
+          <a href="https://kwork.ru/user/TELEGRAM_USERNAME" class="btn btn--ghost" target="_blank" rel="noopener">Kwork</a>
         </div>
-        <div class="stats">
-          <div class="stat">
-            <div class="stat__value">5+</div>
-            <div class="stat__label">кейсов с кодом и деплоем</div>
+        <div class="hero__meta">
+          <div class="meta-item">
+            <div class="meta-item__val">5+</div>
+            <div class="meta-item__lbl">Кейсов с деплоем</div>
           </div>
-          <div class="stat">
-            <div class="stat__value">TG / VK</div>
-            <div class="stat__label">боты, заявки, уведомления</div>
+          <div class="meta-item">
+            <div class="meta-item__val">TG·VK</div>
+            <div class="meta-item__lbl">Боты и заявки</div>
           </div>
-          <div class="stat">
-            <div class="stat__value">AI</div>
-            <div class="stat__label">LLM-диалоги и сценарии</div>
+          <div class="meta-item">
+            <div class="meta-item__val">AI</div>
+            <div class="meta-item__lbl">LLM-сценарии</div>
           </div>
         </div>
       </div>
 
-      <aside class="hero-card reveal">
-        <h2 class="hero-card__title">Что можно заказать</h2>
-        <div class="service-list">
-          <div class="service-item">
-            <strong>Бот с заявками</strong>
-            <span>Диалог, сбор данных, уведомление менеджеру в Telegram</span>
+      <div class="hero__aside reveal">
+        <div class="console-panel">
+          <div class="console-panel__bar">
+            <span class="console-panel__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="console-panel__title">signal — заявка</span>
           </div>
-          <div class="service-item">
-            <strong>AI-консультант</strong>
-            <span>Ответы через LLM, сценарии, интеграция VK/Telegram</span>
+          <div class="console-panel__log" aria-hidden="true">
+            <span class="console-line"><span class="console-ok">✓</span> bot-api <span class="console-dim">online</span></span>
+            <span class="console-line"><span class="console-ok">✓</span> webhook <span class="console-dim">telegram подключён</span></span>
+            <span class="console-line console-line--dim"> ожидаю ввод…</span>
           </div>
-          <div class="service-item">
-            <strong>Парсер / мониторинг</strong>
-            <span>Сбор постов или данных из источников, фильтры, расписание</span>
+          <form class="console-form" id="leadForm" data-telegram="TELEGRAM_USERNAME">
+            <div class="console-form__field">
+              <label class="console-form__label" for="leadName">
+                <span class="console-prompt">имя</span>
+              </label>
+              <input class="console-form__input" id="leadName" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required>
+            </div>
+            <div class="console-form__field">
+              <label class="console-form__label" for="leadContact">
+                <span class="console-prompt">контакт</span>
+              </label>
+              <input class="console-form__input" id="leadContact" name="contact" type="text" autocomplete="tel" placeholder="@telegram или телефон" required>
+            </div>
+            <div class="console-form__field">
+              <label class="console-form__label" for="leadTask">
+                <span class="console-prompt">опишите задачу</span>
+              </label>
+              <textarea class="console-form__input console-form__input--area" id="leadTask" name="task" rows="2" placeholder="Бот, парсер, лендинг — коротко, что нужно сделать" required></textarea>
+            </div>
+            <button class="console-form__submit btn btn--primary" type="submit">→ Отправить в Telegram</button>
+          </form>
+          <div class="console-panel__foot">
+            <span class="console-panel__status">● форма готова</span>
+            <span class="console-panel__meta">откроет Telegram</span>
           </div>
-          <div class="service-item">
-            <strong>Лендинг + backend</strong>
-            <span>Форма заявки, API, nginx, деплой на VPS</span>
+        </div>
+
+      <aside class="hero__dock">
+        <div class="dock__head">
+          <span>services.queue</span>
+          <div class="dock__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+        <div class="dock__body">
+          <div class="dock__row">
+            <span class="dock__num">01</span>
+            <div>
+              <strong>Бот с заявками</strong>
+              <span>Диалог, сбор данных, уведомление менеджеру</span>
+            </div>
+          </div>
+          <div class="dock__row">
+            <span class="dock__num">02</span>
+            <div>
+              <strong>AI-консультант</strong>
+              <span>LLM-ответы, сценарии, VK/Telegram</span>
+            </div>
+          </div>
+          <div class="dock__row">
+            <span class="dock__num">03</span>
+            <div>
+              <strong>Парсер / мониторинг</strong>
+              <span>Сбор данных, фильтры, расписание</span>
+            </div>
+          </div>
+          <div class="dock__row">
+            <span class="dock__num">04</span>
+            <div>
+              <strong>Лендинг + backend</strong>
+              <span>Форма, API, nginx, VPS</span>
+            </div>
           </div>
         </div>
       </aside>
+      </div>
     </div>
   </section>
 
-  <section class="section section--alt" id="services">
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee">
+      <div class="marquee__track">
+        <span class="marquee__item">Python</span>
+        <span class="marquee__item">FastAPI</span>
+        <span class="marquee__item">Telethon</span>
+        <span class="marquee__item">Telegram Bot API</span>
+        <span class="marquee__item">VK API</span>
+        <span class="marquee__item">React</span>
+        <span class="marquee__item">Docker</span>
+        <span class="marquee__item">PostgreSQL</span>
+        <span class="marquee__item">OpenAI / LLM</span>
+        <span class="marquee__item">nginx</span>
+      </div>
+      <div class="marquee__track" aria-hidden="true">
+        <span class="marquee__item">Python</span>
+        <span class="marquee__item">FastAPI</span>
+        <span class="marquee__item">Telethon</span>
+        <span class="marquee__item">Telegram Bot API</span>
+        <span class="marquee__item">VK API</span>
+        <span class="marquee__item">React</span>
+        <span class="marquee__item">Docker</span>
+        <span class="marquee__item">PostgreSQL</span>
+        <span class="marquee__item">OpenAI / LLM</span>
+        <span class="marquee__item">nginx</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section section--ink" id="services">
     <div class="container">
       <div class="section__head reveal">
-        <div class="section__eyebrow">Услуги</div>
-        <h2 class="section__title">Под задачи малого бизнеса и автоматизации</h2>
-        <p class="section__text">Беру проекты, где нужен работающий результат: код, деплой, понятная сдача — не «макет ради макета».</p>
+        <div class="section__index">01</div>
+        <div class="section__head-text">
+          <div class="section__label">Services</div>
+          <h2 class="section__title">Что делаю для заказчиков</h2>
+          <p class="section__text">Работающий код и деплой — не макет ради макета. Беру задачи, где результат можно запустить и передать.</p>
+        </div>
       </div>
-      <div class="cards">
-        <article class="card reveal">
-          <span class="card__tag">Telegram / VK</span>
-          <h3 class="card__title">Чат-боты и заявки</h3>
-          <p class="card__text">Меню, сбор контактов, интеграция с таблицами или CRM, уведомления админу.</p>
+      <div class="service-rows">
+        <article class="service-row reveal">
+          <span class="service-row__num">A</span>
+          <div>
+            <h3 class="service-row__title">Чат-боты и заявки</h3>
+            <p class="service-row__desc">Меню, сбор контактов, интеграция с таблицами или CRM, уведомления админу в Telegram.</p>
+          </div>
+          <span class="service-row__tag">Telegram / VK</span>
         </article>
-        <article class="card reveal">
-          <span class="card__tag">AI</span>
-          <h3 class="card__title">AI-агенты и консультанты</h3>
-          <p class="card__text">Диалог на LLM, ограничение сценария, передача сложных кейсов человеку.</p>
+        <article class="service-row reveal">
+          <span class="service-row__num">B</span>
+          <div>
+            <h3 class="service-row__title">AI-агенты и консультанты</h3>
+            <p class="service-row__desc">Диалог на LLM, ограничение сценария, эскалация сложных кейсов человеку.</p>
+          </div>
+          <span class="service-row__tag">AI / LLM</span>
         </article>
-        <article class="card reveal">
-          <span class="card__tag">Python</span>
-          <h3 class="card__title">Парсеры и автоматизация</h3>
-          <p class="card__text">Telethon, Playwright, cron, сохранение в БД, фильтрация и отчёты.</p>
+        <article class="service-row reveal">
+          <span class="service-row__num">C</span>
+          <div>
+            <h3 class="service-row__title">Парсеры и автоматизация</h3>
+            <p class="service-row__desc">Telethon, Playwright, cron, сохранение в БД, фильтрация и отчёты.</p>
+          </div>
+          <span class="service-row__tag">Python</span>
         </article>
       </div>
     </div>
@@ -116,69 +221,175 @@
   <section class="section" id="cases">
     <div class="container">
       <div class="section__head reveal">
-        <div class="section__eyebrow">Кейсы</div>
-        <h2 class="section__title">Примеры работ</h2>
-        <p class="section__text">Учебные и рабочие проекты с репозиториями. Можно посмотреть код и логику сдачи.</p>
+        <div class="section__index">02</div>
+        <div class="section__head-text">
+          <div class="section__label">Selected work</div>
+          <h2 class="section__title">Кейсы</h2>
+          <p class="section__text">Учебные и рабочие проекты с репозиториями. Код и логика сдачи — открыты.</p>
+        </div>
       </div>
-      <div class="cards">
-        <article class="card reveal">
-          <span class="card__tag">VK · AI</span>
-          <h3 class="card__title">AI-бот ВКонтакте с заявками</h3>
-          <p class="card__text">Консультация через нейросеть, пошаговый сбор заявки, уведомление администратору.</p>
-          <a href="https://github.com/SpiritWalker84/FGIp04" class="card__link" target="_blank" rel="noopener">GitHub →</a>
+      <div class="case-list">
+        <article class="case-row reveal">
+          <span class="case-row__num">01</span>
+          <div class="case-row__body">
+            <div class="case-row__tags">VK · AI</div>
+            <h3 class="case-row__title">AI-бот ВКонтакте с заявками</h3>
+            <p class="case-row__desc">Нейроконсультация, пошаговый сбор заявки, уведомление администратору.</p>
+          </div>
+          <a href="https://github.com/SpiritWalker84/FGIp04" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
         </article>
-        <article class="card reveal">
-          <span class="card__tag">React · FastAPI</span>
-          <h3 class="card__title">Калькулятор + Telegram-бот</h3>
-          <p class="card__text">React/TS фронт, FastAPI backend, заявки в Telegram, Docker.</p>
-          <a href="https://github.com/SpiritWalker84/FGIp05" class="card__link" target="_blank" rel="noopener">GitHub →</a>
+        <article class="case-row reveal">
+          <span class="case-row__num">02</span>
+          <div class="case-row__body">
+            <div class="case-row__tags">React · FastAPI</div>
+            <h3 class="case-row__title">Калькулятор + Telegram-бот</h3>
+            <p class="case-row__desc">React/TS фронт, FastAPI backend, заявки в Telegram, Docker.</p>
+          </div>
+          <a href="https://github.com/SpiritWalker84/FGIp05" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
         </article>
-        <article class="card reveal">
-          <span class="card__tag">Landing · VPS</span>
-          <h3 class="card__title">Лендинги с form-api</h3>
-          <p class="card__text">Несколько лендингов, nginx, формы заявок, деплой на сервер.</p>
-          <a href="https://github.com/SpiritWalker84" class="card__link" target="_blank" rel="noopener">GitHub →</a>
+        <article class="case-row reveal">
+          <span class="case-row__num">03</span>
+          <div class="case-row__body">
+            <div class="case-row__tags">Landing · VPS</div>
+            <h3 class="case-row__title">Лендинги с form-api</h3>
+            <p class="case-row__desc">5 лендингов, nginx, формы заявок, деплой на сервер.</p>
+          </div>
+          <a href="https://github.com/SpiritWalker84" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
         </article>
-        <article class="card reveal">
-          <span class="card__tag">Telethon</span>
-          <h3 class="card__title">Telegram-парсер заказов</h3>
-          <p class="card__text">Автосбор постов из канала, фильтрация по дате, инкрементальная загрузка.</p>
-          <span class="card__link">Демо по запросу</span>
+        <article class="case-row reveal">
+          <span class="case-row__num">04</span>
+          <div class="case-row__body">
+            <div class="case-row__tags">Telethon</div>
+            <h3 class="case-row__title">Telegram-парсер заказов</h3>
+            <p class="case-row__desc">Автосбор постов из канала, фильтрация по дате, инкрементальная загрузка.</p>
+          </div>
+          <span class="case-row__link">Демо →</span>
         </article>
-        <article class="card reveal">
-          <span class="card__tag">LLM</span>
-          <h3 class="card__title">AI-агенты и чат-боты</h3>
-          <p class="card__text">Боты с LLM, сценарии диалога, интеграция мессенджеров.</p>
-          <a href="https://github.com/SpiritWalker84/FGIp04" class="card__link" target="_blank" rel="noopener">GitHub →</a>
-        </article>
-        <article class="card reveal">
-          <span class="card__tag">Stack</span>
-          <h3 class="card__title">Стек</h3>
-          <p class="card__text">Python, FastAPI, Telethon, React, Docker, PostgreSQL, nginx, VPS.</p>
-          <a href="#contact" class="card__link">Обсудить задачу →</a>
+        <article class="case-row reveal">
+          <span class="case-row__num">05</span>
+          <div class="case-row__body">
+            <div class="case-row__tags">LLM</div>
+            <h3 class="case-row__title">AI-агенты и чат-боты</h3>
+            <p class="case-row__desc">Боты с LLM, сценарии диалога, интеграция мессенджеров.</p>
+          </div>
+          <a href="https://github.com/SpiritWalker84/FGIp04" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section section--alt">
-    <div class="container reveal">
-      <div class="section__head">
-        <div class="section__eyebrow">Стек</div>
-        <h2 class="section__title">Технологии</h2>
+  <section class="section section--ink" id="visual">
+    <div class="container">
+      <div class="section__head reveal">
+        <div class="section__index">↗</div>
+        <div class="section__head-text">
+          <div class="section__label">Visual work</div>
+          <h2 class="section__title">Лендинги в проде — не только боты</h2>
+          <p class="section__text">Премиальная вёрстка, form-api, nginx, деплой. Живые демо на сервере — можно открыть и проверить форму заявки.</p>
+        </div>
       </div>
-      <div class="stack">
-        <span class="chip">Python</span>
-        <span class="chip">FastAPI</span>
-        <span class="chip">Telethon</span>
-        <span class="chip">Telegram Bot API</span>
-        <span class="chip">VK API</span>
-        <span class="chip">React</span>
-        <span class="chip">TypeScript</span>
-        <span class="chip">Docker</span>
-        <span class="chip">PostgreSQL</span>
-        <span class="chip">nginx</span>
-        <span class="chip">OpenAI / LLM</span>
+
+      <div class="showcase reveal">
+        <a href="/landing2/" class="showcase__card showcase__card--wide" target="_blank" rel="noopener">
+          <div class="browser">
+            <div class="browser__bar">
+              <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="browser__url">5.35.94.25/landing2</span>
+            </div>
+            <div class="browser__screen">
+              <img src="images/showcase/interior.jpg" alt="Лендинг студии интерьеров FORM" loading="lazy" width="800" height="500">
+            </div>
+          </div>
+          <div class="showcase__caption">
+            <span class="showcase__tag">Interior · premium</span>
+            <strong>Студия интерьеров</strong>
+            <span>Hero, портфолио, форма заявки, scroll-анимации</span>
+          </div>
+        </a>
+
+        <a href="/landing1/" class="showcase__card" target="_blank" rel="noopener">
+          <div class="browser">
+            <div class="browser__bar">
+              <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="browser__url">/landing1</span>
+            </div>
+            <div class="browser__screen">
+              <img src="images/showcase/acril.jpg" alt="Лендинг Senosan / Пластик Акрил" loading="lazy" width="600" height="400">
+            </div>
+          </div>
+          <div class="showcase__caption">
+            <span class="showcase__tag">B2B · materials</span>
+            <strong>Пластик Акрил</strong>
+            <span>Каталог фасадов, lead-form, FastAPI backend</span>
+          </div>
+        </a>
+
+        <a href="/landing3/" class="showcase__card" target="_blank" rel="noopener">
+          <div class="browser">
+            <div class="browser__bar">
+              <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="browser__url">/landing3</span>
+            </div>
+            <div class="browser__screen">
+              <img src="images/showcase/banya.jpg" alt="Лендинг BanyaWood" loading="lazy" width="600" height="400">
+            </div>
+          </div>
+          <div class="showcase__caption">
+            <span class="showcase__tag">Catalog · wood</span>
+            <strong>BanyaWood</strong>
+            <span>Каталог бань, галерея, заявка на расчёт</span>
+          </div>
+        </a>
+
+        <div class="showcase__card showcase__card--ui">
+          <div class="browser">
+            <div class="browser__bar">
+              <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="browser__url">telegram · bot</span>
+            </div>
+            <div class="browser__screen browser__screen--chat">
+              <div class="chat-mock">
+                <div class="chat-mock__bubble chat-mock__bubble--bot">Здравствуйте! Помогу с расчётом. Какой тип фасада интересует?</div>
+                <div class="chat-mock__bubble chat-mock__bubble--user">TOP M, кухня 3 метра</div>
+                <div class="chat-mock__bubble chat-mock__bubble--bot">Принял. Оставьте телефон — менеджер свяжется в течение часа.</div>
+                <div class="chat-mock__status">✓ Заявка отправлена админу</div>
+              </div>
+            </div>
+          </div>
+          <div class="showcase__caption">
+            <span class="showcase__tag">Bot · lead flow</span>
+            <strong>Бот + уведомление</strong>
+            <span>Диалог, сбор заявки, ping менеджеру в Telegram</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="showcase__note reveal">5 лендингов на VPS · nginx · form-api · <a href="/" class="showcase__note-link">хаб всех демо →</a></p>
+    </div>
+  </section>
+
+  <section class="section" id="stack">
+    <div class="container">
+      <div class="section__head reveal">
+        <div class="section__index">—</div>
+        <div class="section__head-text">
+          <div class="section__label">Stack</div>
+          <h2 class="section__title">Технологии</h2>
+        </div>
+      </div>
+      <div class="stack-grid reveal">
+        <div class="stack-cell">Python</div>
+        <div class="stack-cell">FastAPI</div>
+        <div class="stack-cell">Telethon</div>
+        <div class="stack-cell">Bot API</div>
+        <div class="stack-cell">VK API</div>
+        <div class="stack-cell">React</div>
+        <div class="stack-cell">TypeScript</div>
+        <div class="stack-cell">Docker</div>
+        <div class="stack-cell">PostgreSQL</div>
+        <div class="stack-cell">nginx</div>
+        <div class="stack-cell">OpenAI</div>
+        <div class="stack-cell">VPS</div>
       </div>
     </div>
   </section>
@@ -186,29 +397,32 @@
   <section class="section" id="process">
     <div class="container">
       <div class="section__head reveal">
-        <div class="section__eyebrow">Процесс</div>
-        <h2 class="section__title">Как работаю с заказчиком</h2>
+        <div class="section__index">03</div>
+        <div class="section__head-text">
+          <div class="section__label">Process</div>
+          <h2 class="section__title">Как работаю</h2>
+        </div>
       </div>
-      <div class="steps">
-        <article class="step reveal">
-          <div class="step__num">1</div>
-          <h3 class="step__title">Бриф</h3>
-          <p class="step__text">Уточняю задачу, источники данных, интеграции и сроки.</p>
+      <div class="process-grid reveal">
+        <article class="process-step">
+          <div class="process-step__num">01</div>
+          <h3 class="process-step__title">Бриф</h3>
+          <p class="process-step__text">Задача, источники данных, интеграции, сроки.</p>
         </article>
-        <article class="step reveal">
-          <div class="step__num">2</div>
-          <h3 class="step__title">Оценка</h3>
-          <p class="step__text">Даю вилку по срокам и стоимости, фиксируем MVP.</p>
+        <article class="process-step">
+          <div class="process-step__num">02</div>
+          <h3 class="process-step__title">Оценка</h3>
+          <p class="process-step__text">Вилка по срокам и стоимости, фиксируем MVP.</p>
         </article>
-        <article class="step reveal">
-          <div class="step__num">3</div>
-          <h3 class="step__title">Разработка</h3>
-          <p class="step__text">Промежуточные демо в Telegram или на тестовом URL.</p>
+        <article class="process-step">
+          <div class="process-step__num">03</div>
+          <h3 class="process-step__title">Разработка</h3>
+          <p class="process-step__text">Демо в Telegram или на тестовом URL.</p>
         </article>
-        <article class="step reveal">
-          <div class="step__num">4</div>
-          <h3 class="step__title">Сдача</h3>
-          <p class="step__text">Деплой, инструкция, короткая поддержка после запуска.</p>
+        <article class="process-step">
+          <div class="process-step__num">04</div>
+          <h3 class="process-step__title">Сдача</h3>
+          <p class="process-step__text">Деплой, инструкция, короткая поддержка.</p>
         </article>
       </div>
     </div>
@@ -216,12 +430,10 @@
 
   <section class="cta" id="contact">
     <div class="container">
-      <div class="cta__box reveal">
-        <div>
-          <h2 class="cta__title">Есть задача — напишите</h2>
-          <p class="cta__text">Коротко опишите, что нужно автоматизировать. Отвечу с уточняющими вопросами и ориентиром по срокам.</p>
-        </div>
-        <div class="hero__actions">
+      <div class="cta__panel reveal">
+        <h2 class="cta__title">Есть задача — напишите</h2>
+        <p class="cta__text">Коротко опишите, что нужно автоматизировать. Отвечу с вопросами и ориентиром по срокам.</p>
+        <div class="cta__actions">
           <a href="https://t.me/TELEGRAM_USERNAME" class="btn btn--primary" target="_blank" rel="noopener">Telegram</a>
           <a href="https://kwork.ru/user/TELEGRAM_USERNAME" class="btn btn--ghost" target="_blank" rel="noopener">Kwork</a>
         </div>
@@ -230,11 +442,13 @@
   </section>
 
   <footer class="footer">
-    <div class="container">
-      © 2026 Ринат · Портфолио для фриланса · GitHub: SpiritWalker84
+    <div class="container footer__inner">
+      <span><span class="footer__brand">Signal</span> · Ринат · 2026</span>
+      <span>GitHub: SpiritWalker84 · Portfolio for freelance</span>
     </div>
   </footer>
 
+  <script src="js/signal-rain.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
