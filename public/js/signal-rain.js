@@ -51,9 +51,8 @@
       const y = drops[i] * fontSize;
       const alpha = 0.08 + Math.random() * 0.24;
       const isNeon = document.documentElement.getAttribute("data-theme") === "neon";
-      const alpha = 0.08 + Math.random() * 0.24;
       ctx.fillStyle = isNeon
-        ? `rgba(126, 200, 255, ${alpha})`
+        ? `rgba(255, 113, 57, ${alpha})`
         : `rgba(224, 120, 64, ${alpha * 0.85})`;
       ctx.fillText(char, x, y);
 

@@ -75,30 +75,39 @@ if (leadForm) {
 }
 
 const THEME_KEY = "signal-theme";
-const themeToggle = document.getElementById("themeToggle");
-const themeToggleLabel = document.getElementById("themeToggleLabel");
 
-function applyTheme(neon) {
-  if (neon) {
-    document.documentElement.setAttribute("data-theme", "neon");
-    if (themeToggleLabel) themeToggleLabel.textContent = "Неон: вкл";
-  } else {
-    document.documentElement.removeAttribute("data-theme");
-    if (themeToggleLabel) themeToggleLabel.textContent = "v1";
+function initThemeToggle() {
+  const themeToggle = document.getElementById("themeToggle");
+  const themeToggleLabel = document.getElementById("themeToggleLabel");
+
+  function applyTheme(neon) {
+    if (neon) {
+      document.documentElement.setAttribute("data-theme", "neon");
+      if (themeToggleLabel) themeToggleLabel.textContent = "Неон: вкл";
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+      if (themeToggleLabel) themeToggleLabel.textContent = "v1";
+    }
+  }
+
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  if (savedTheme === "v1") {
+    applyTheme(false);
+  } else if (savedTheme === "neon") {
+    applyTheme(true);
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isNeon = document.documentElement.getAttribute("data-theme") === "neon";
+      applyTheme(!isNeon);
+      localStorage.setItem(THEME_KEY, !isNeon ? "neon" : "v1");
+    });
   }
 }
 
-const savedTheme = localStorage.getItem(THEME_KEY);
-if (savedTheme === "v1") {
-  applyTheme(false);
-} else if (savedTheme === "neon") {
-  applyTheme(true);
-}
-
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    const isNeon = document.documentElement.getAttribute("data-theme") === "neon";
-    applyTheme(!isNeon);
-    localStorage.setItem(THEME_KEY, !isNeon ? "neon" : "v1");
-  });
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initThemeToggle);
+} else {
+  initThemeToggle();
 }

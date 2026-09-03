@@ -1,5 +1,6 @@
-# GitHub Pages: статика из public/ (как на VPS /portfolio/)
-# URL: https://SpiritWalker84.github.io/freelance-portfolio/showcase/
+# GitHub Pages: public/ → ветка gh-pages
+# После push: Settings → Pages → Deploy from branch → gh-pages / (root)
+# URL: https://spiritwalker84.github.io/freelance-portfolio/showcase/
 
 name: Deploy GitHub Pages
 
@@ -9,29 +10,22 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: public
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          force_orphan: true
