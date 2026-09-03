@@ -49,8 +49,12 @@
       const char = chars[Math.floor(Math.random() * chars.length)];
       const x = i * fontSize;
       const y = drops[i] * fontSize;
-      const alpha = 0.08 + Math.random() * 0.22;
-      ctx.fillStyle = `rgba(224, 120, 64, ${alpha})`;
+      const alpha = 0.08 + Math.random() * 0.24;
+      const isNeon = document.documentElement.getAttribute("data-theme") === "neon";
+      const alpha = 0.08 + Math.random() * 0.24;
+      ctx.fillStyle = isNeon
+        ? `rgba(126, 200, 255, ${alpha})`
+        : `rgba(224, 120, 64, ${alpha * 0.85})`;
       ctx.fillText(char, x, y);
 
       if (y > h && Math.random() > 0.975) {
