@@ -218,17 +218,6 @@ html[data-theme="neon"] .hero__rain {
   opacity: 0.65;
 }
 
-html[data-theme="neon"] .mascot-visual {
-  border-color: rgba(255, 113, 57, 0.28);
-  box-shadow:
-    0 0 24px rgba(255, 113, 57, 0.1),
-    inset 0 0 40px rgba(255, 113, 57, 0.03);
-}
-
-html[data-theme="neon"] .mascot-visual__img {
-  filter: drop-shadow(0 0 18px rgba(255, 113, 57, 0.15));
-}
-
 .theme-toggle {
   position: fixed;
   bottom: 1rem;
