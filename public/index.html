@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ринат — автоматизация для бизнеса</title>
-  <meta name="description" content="Telegram/VK-боты, AI, парсеры, лендинги. Автоматизация процессов для бизнеса — от брифа до деплоя.">
+  <meta name="description" content="Контур заявки: сайт или бот → таблица → Telegram. Python, FastAPI, n8n, лендинги с backend.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
@@ -12,8 +13,6 @@
   <link rel="stylesheet" href="css/neon.css">
 </head>
 <body>
-  <!-- TODO: замени TELEGRAM_USERNAME на свой ник в Telegram (без @) -->
-
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#" class="logo">
@@ -33,7 +32,7 @@
       </nav>
       <div class="header__actions">
         <a href="https://github.com/SpiritWalker84" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://t.me/TELEGRAM_USERNAME" class="btn btn--primary" target="_blank" rel="noopener">Telegram</a>
+        <a href="#" class="btn btn--primary site-link" data-site-link="telegram">Telegram</a>
       </div>
       <button class="menu-toggle" id="menuToggle" aria-label="Меню">Menu</button>
     </div>
@@ -48,15 +47,15 @@
 
     <div class="container hero__layout">
       <div class="hero__main reveal">
-        <div class="prod-label">Фриланс · под ключ</div>
-        <h1 class="hero__title">Автоматизация для бизнеса</h1>
+        <div class="prod-label">Заявки · боты · интеграции</div>
+        <h1 class="hero__title">Заявка не теряется</h1>
         <p class="hero__lead">
-          Telegram/VK-боты, AI-агенты, парсеры и лендинги с backend.
-          От брифа до деплоя — Python, FastAPI, Docker, React.
+          Сайт или Telegram/VK-бот → Google Таблица → уведомление менеджеру.
+          При необходимости n8n, CRM и короткая LLM-метка лида. Python, FastAPI, деплой на VPS.
         </p>
         <div class="hero__actions">
-          <a href="https://t.me/TELEGRAM_USERNAME" class="btn btn--primary" target="_blank" rel="noopener">Обсудить задачу</a>
-          <a href="https://kwork.ru/user/TELEGRAM_USERNAME" class="btn btn--ghost" target="_blank" rel="noopener">Kwork</a>
+          <a href="#contact" class="btn btn--primary">Оставить задачу</a>
+          <a href="#" class="btn btn--ghost site-link" data-site-link="kwork">Kwork</a>
         </div>
         <div class="hero__meta">
           <div class="meta-item">
@@ -85,7 +84,8 @@
             <span class="console-line"><span class="console-ok">✓</span> webhook <span class="console-dim">telegram подключён</span></span>
             <span class="console-line console-line--dim"> ожидаю ввод…</span>
           </div>
-          <form class="console-form" id="leadForm" data-telegram="TELEGRAM_USERNAME">
+          <form class="console-form" id="leadForm" novalidate>
+            <input type="text" name="website" class="console-form__hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="console-form__field">
               <label class="console-form__label" for="leadName">
                 <span class="console-prompt">имя</span>
@@ -104,11 +104,11 @@
               </label>
               <textarea class="console-form__input console-form__input--area" id="leadTask" name="task" rows="2" placeholder="Бот, парсер, лендинг — коротко, что нужно сделать" required></textarea>
             </div>
-            <button class="console-form__submit btn btn--primary" type="submit">→ Отправить в Telegram</button>
+            <button class="console-form__submit btn btn--primary" type="submit">→ Отправить заявку</button>
           </form>
           <div class="console-panel__foot">
-            <span class="console-panel__status">● форма готова</span>
-            <span class="console-panel__meta">откроет Telegram</span>
+            <span class="console-panel__status">● контур заявки</span>
+            <span class="console-panel__meta">API или Telegram</span>
           </div>
         </div>
 
@@ -246,22 +246,22 @@
             <li>Тексты и структура под ваш бизнес</li>
             <li>Инструкция по запуску</li>
           </ul>
-          <a href="https://kwork.ru/user/TELEGRAM_USERNAME" class="package-card__link" target="_blank" rel="noopener">Заказать на Kwork →</a>
+          <a href="#" class="package-card__link" data-kwork-gig="menu">Заказать на Kwork →</a>
         </article>
         <article class="package-card package-card--featured">
           <div class="package-card__head">
             <span class="package-card__tier">Популярный</span>
             <span class="package-card__term">3–5 дней</span>
           </div>
-          <h3 class="package-card__title">Бот + заявки</h3>
-          <p class="package-card__price">от 4 500 ₽</p>
+          <h3 class="package-card__title">Контур заявки (бот)</h3>
+          <p class="package-card__price">от 8 000 ₽</p>
           <ul class="package-card__list">
             <li>Диалог или форма сбора данных</li>
-            <li>Уведомление менеджеру в Telegram</li>
+            <li>Строка в Google Таблице + ping в Telegram</li>
             <li>Меню, FAQ, типовые ответы</li>
             <li>Деплой на VPS или хостинг</li>
           </ul>
-          <a href="https://kwork.ru/user/TELEGRAM_USERNAME" class="package-card__link" target="_blank" rel="noopener">Заказать на Kwork →</a>
+          <a href="#" class="package-card__link" data-kwork-gig="zayavki">Заказать на Kwork →</a>
         </article>
         <article class="package-card">
           <div class="package-card__head">
@@ -276,7 +276,7 @@
             <li>Сбор заявки и ping админу</li>
             <li>Telegram или VK</li>
           </ul>
-          <a href="https://kwork.ru/user/TELEGRAM_USERNAME" class="package-card__link" target="_blank" rel="noopener">Заказать на Kwork →</a>
+          <a href="#" class="package-card__link" data-kwork-gig="ai">Заказать на Kwork →</a>
         </article>
       </div>
 
@@ -295,7 +295,7 @@
             <li>Анимации, базовая SEO-разметка</li>
             <li>Передача исходников и инструкция</li>
           </ul>
-          <a href="https://kwork.ru/user/TELEGRAM_USERNAME" class="package-card__link" target="_blank" rel="noopener">Заказать на Kwork →</a>
+          <a href="#" class="package-card__link" data-kwork-gig="landing">Заказать на Kwork →</a>
         </article>
         <article class="package-card package-card--featured">
           <div class="package-card__head">
@@ -310,11 +310,12 @@
             <li>nginx, деплой на VPS</li>
             <li>Примеры — в разделе «Визуал» ниже</li>
           </ul>
-          <a href="https://kwork.ru/user/TELEGRAM_USERNAME" class="package-card__link" target="_blank" rel="noopener">Заказать на Kwork →</a>
+          <a href="#" class="package-card__link" data-kwork-gig="zayavki">Заказать на Kwork →</a>
         </article>
       </div>
 
-      <p class="packages__note reveal">Для отклика на проект с Биржи — ссылка без контактов: <a href="showcase/" class="packages__note-link">/portfolio/showcase/</a></p>
+      <p class="packages__note reveal">Сопровождение после запуска: мониторинг бота/импорта, мелкие правки — от 3 000 ₽/мес (обсуждается отдельно).</p>
+      <p class="packages__note reveal">Для отклика на Kwork — только демо <strong>без контактов</strong>: <a href="showcase/" class="packages__note-link">…/showcase/</a> (не главную страницу).</p>
     </div>
   </section>
 
@@ -373,15 +374,6 @@
             <p class="case-row__desc">Боты с LLM, сценарии диалога, интеграция мессенджеров.</p>
           </div>
           <a href="https://github.com/SpiritWalker84/FGIp04" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
-        </article>
-        <article class="case-row reveal">
-          <span class="case-row__num">06</span>
-          <div class="case-row__body">
-            <div class="case-row__tags">Laravel · CRM</div>
-            <h3 class="case-row__title">Трекер заявок</h3>
-            <p class="case-row__desc">Приём и распределение заявок: диспетчер, мастер, статусы. Вместо Excel и чатов.</p>
-          </div>
-          <a href="https://github.com/SpiritWalker84/FGIp07" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
         </article>
       </div>
     </div>
@@ -448,23 +440,6 @@
             <span class="showcase__tag">Catalog · wood</span>
             <strong>BanyaWood</strong>
             <span>Каталог бань, галерея, заявка на расчёт</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/SpiritWalker84/FGIp05" class="showcase__card showcase__card--wide" target="_blank" rel="noopener">
-          <div class="browser">
-            <div class="browser__bar">
-              <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="browser__url">github.com/SpiritWalker84/FGIp05</span>
-            </div>
-            <div class="browser__screen">
-              <img src="images/showcase/calculator.png" alt="Калькулятор сметы каркасного дома" loading="lazy" width="960" height="600">
-            </div>
-          </div>
-          <div class="showcase__caption">
-            <span class="showcase__tag">React · смета</span>
-            <strong>Калькулятор каркасного дома</strong>
-            <span>Параметры → сумма → заявка менеджеру в Telegram</span>
           </div>
         </a>
       </div>
@@ -664,8 +639,8 @@
         <h2 class="cta__title">Есть задача — напишите</h2>
         <p class="cta__text">Коротко опишите, что нужно автоматизировать. Отвечу с вопросами и ориентиром по срокам.</p>
         <div class="cta__actions">
-          <a href="https://t.me/TELEGRAM_USERNAME" class="btn btn--primary" target="_blank" rel="noopener">Telegram</a>
-          <a href="https://kwork.ru/user/TELEGRAM_USERNAME" class="btn btn--ghost" target="_blank" rel="noopener">Kwork</a>
+          <a href="#" class="btn btn--primary site-link" data-site-link="telegram">Telegram</a>
+          <a href="#" class="btn btn--ghost site-link" data-site-link="kwork">Kwork</a>
         </div>
       </div>
     </div>
@@ -683,6 +658,8 @@
     <span id="themeToggleLabel">Неон: вкл</span>
   </button>
 
+  <script src="js/site-config.js"></script>
+  <script src="js/apply-site-config.js"></script>
   <script src="js/signal-rain.js"></script>
   <script src="js/main.js"></script>
 </body>

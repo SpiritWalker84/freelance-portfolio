@@ -14,8 +14,9 @@ python -m http.server 8080
 ## Перед публикацией
 
 1. Открой `public/index.html`
-2. Замени `TELEGRAM_USERNAME` на свой ник в Telegram (без `@`)
-3. Замени ссылку Kwork на свою: `https://kwork.ru/user/ВАШ_ЛОГИН`
+2. Заполни `public/js/site-config.js` — `telegramUsername`, при необходимости `leadApiUrl`
+3. Для откликов на **Kwork** давай только `…/showcase/` (без контактов). Главная — для FL/Telegram/прямых клиентов.
+4. Перед пушем: `./scripts/verify-showcase-safe.sh`
 4. При необходимости поправь имя, описание, кейсы
 
 ---

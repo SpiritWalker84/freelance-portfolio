@@ -1744,6 +1744,26 @@ a.showcase__card:hover .browser__screen img {
   color: var(--accent);
 }
 
+.console-form__hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn--static {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.85;
+}
+
+.site-link.is-disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee { animation: none; }
   .hero__orb { animation: none; }

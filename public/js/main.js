@@ -46,18 +46,49 @@ if (!prefersReduced && revealItems.length) {
 
 const leadForm = document.getElementById("leadForm");
 if (leadForm) {
-  leadForm.addEventListener("submit", (event) => {
+  leadForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const telegramUser = leadForm.dataset.telegram || "TELEGRAM_USERNAME";
-    if (telegramUser === "TELEGRAM_USERNAME") {
-      alert("Укажи Telegram username в data-telegram формы и в ссылках на сайте.");
+    const honeypot = leadForm.querySelector('[name="website"]');
+    if (honeypot && honeypot.value.trim()) {
       return;
     }
 
     const name = leadForm.name.value.trim();
     const contact = leadForm.contact.value.trim();
     const task = leadForm.task.value.trim();
+
+    if (name.length > 120 || contact.length > 120 || task.length > 2000) {
+      alert("Слишком длинный текст в форме.");
+      return;
+    }
+
+    const leadApi = (leadForm.dataset.leadApi || "").trim();
+    const canPostApi =
+      leadApi &&
+      (window.location.protocol !== "https:" || leadApi.startsWith("https:"));
+    if (canPostApi) {
+      try {
+        const res = await fetch(leadApi, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, contact, task, website: "" }),
+        });
+        if (res.ok) {
+          alert("Заявка отправлена. Отвечу в Telegram в рабочее время.");
+          leadForm.reset();
+          return;
+        }
+      } catch (_) {
+        /* fallback to Telegram deep link */
+      }
+    }
+
+    const telegramUser = (leadForm.dataset.telegram || "").replace(/^@/, "").trim();
+    if (!telegramUser) {
+      alert("Укажите telegramUsername в public/js/site-config.js");
+      return;
+    }
 
     const message = [
       "Заявка с портфолио",

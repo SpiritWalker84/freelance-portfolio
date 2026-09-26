@@ -2,3 +2,6 @@
 *.swp
 .idea/
 .vscode/
+deploy/**/.env
+deploy/**/.venv/
+__pycache__/
