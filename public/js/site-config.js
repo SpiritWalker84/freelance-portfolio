@@ -3,6 +3,8 @@
  * Showcase (/showcase/) контакты не использует — только для откликов на Kwork.
  */
 window.SITE_CONFIG = {
+  /** Публичный корень сайта (GitHub Pages). Для копирования ссылок в отклики. */
+  siteBaseUrl: "https://spiritwalker84.github.io/freelance-portfolio",
   /** Telegram @username без «@». Пусто — кнопки Telegram скрыты, форма покажет подсказку. */
   telegramUsername: "spiritwalker84",
   kworkUsername: "spiritwalker",
@@ -16,4 +18,8 @@ window.SITE_CONFIG = {
     landing: "https://kwork.ru/user/spiritwalker",
   },
   showcasePath: "/freelance-portfolio/showcase/",
+  /** Витрина карточек WB/Ozon без контактов — для откликов Kwork (дизайн МП). */
+  showcaseMpPath: "/freelance-portfolio/showcase/mp/",
+  /** Полная страница направления (с Telegram и пакетами). */
+  marketplacePath: "/freelance-portfolio/marketplace/",
 };

@@ -1,0 +1,140 @@
+/* Карточки WB/Ozon — сетка слайдов 3:4 */
+.mp-hero {
+  padding: 7rem 0 3rem;
+}
+
+.mp-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.mp-hero__lead {
+  max-width: 42rem;
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+}
+
+.mp-hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.mp-disclaimer {
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  margin: 2rem 0 0;
+  max-width: 40rem;
+}
+
+.mp-case {
+  margin-bottom: 3.5rem;
+}
+
+.mp-case__head {
+  margin-bottom: 1.25rem;
+}
+
+.mp-case__tags {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.mp-case__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin: 0.35rem 0 0.5rem;
+}
+
+.mp-case__text {
+  color: var(--muted);
+  margin: 0;
+  max-width: 46rem;
+}
+
+.mp-slides {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .mp-slides {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+.mp-slide {
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: border-color 0.2s, transform 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.mp-slide:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.mp-slide img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: var(--ink-3);
+}
+
+.mp-slide figcaption {
+  padding: 0.5rem 0.65rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+
+.mp-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.mp-teaser-card {
+  display: block;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  background: var(--surface);
+  transition: border-color 0.2s;
+}
+
+.mp-teaser-card:hover {
+  border-color: var(--accent);
+}
+
+.mp-teaser-card strong {
+  display: block;
+  font-family: var(--font-display);
+  margin-bottom: 0.35rem;
+}
+
+.mp-teaser-card span {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.page-marketplace .header__tag--mp {
+  color: var(--accent);
+}

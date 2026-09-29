@@ -1,6 +1,19 @@
-# Портфолио-витрина для фриланса (GitLab Pages)
+# Портфолио-витрина (GitHub Pages + VPS для демо)
 
-Статический лендинг для ссылок из Kwork, откликов и Telegram.
+Статический сайт для Kwork, hh, Telegram и прямых клиентов.
+
+## Публичные URL (актуально)
+
+| Страница | Ссылка |
+|----------|--------|
+| **Главная** (боты, автоматизация) | https://spiritwalker84.github.io/freelance-portfolio/ |
+| **Карточки WB/Ozon** | https://spiritwalker84.github.io/freelance-portfolio/marketplace/ |
+| **Kwork: боты** (без контактов) | https://spiritwalker84.github.io/freelance-portfolio/showcase/ |
+| **Kwork: карточки МП** (без контактов) | https://spiritwalker84.github.io/freelance-portfolio/showcase/mp/ |
+
+**Хостинг сайта:** [GitHub Pages](https://github.com/SpiritWalker84/freelance-portfolio) (ветка `master`, workflow `.github/workflows/deploy-pages.yml`).
+
+**VPS** (`5.35.94.25`): live-демо лендингов (`/landing1/` …), API формы заявки с главной (`leadApiUrl` в `site-config.js`). Сам портфолио-сайт на VPS не обязателен — основная витрина на GitHub.
 
 ## Быстрый старт локально
 
@@ -11,121 +24,50 @@ python -m http.server 8080
 
 Открой: http://127.0.0.1:8080
 
-## Перед публикацией
+## Перед пушем
 
-1. Открой `public/index.html`
-2. Заполни `public/js/site-config.js` — `telegramUsername`, при необходимости `leadApiUrl`
-3. Для откликов на **Kwork** давай только `…/showcase/` (без контактов). Главная — для FL/Telegram/прямых клиентов.
-4. Перед пушем: `./scripts/verify-showcase-safe.sh`
-4. При необходимости поправь имя, описание, кейсы
+1. `public/js/site-config.js` — `telegramUsername`, `kworkUsername`, `leadApiUrl`
+2. Для откликов **Kwork** не давайте главную (там контакты):
+   - разработка → `…/showcase/`
+   - карточки МП → `…/showcase/mp/`
+3. `./scripts/verify-showcase-safe.sh`
 
----
-
-## GitLab Pages — пошагово
-
-### Шаг 1. Аккаунт GitLab
-
-1. Зайди на https://gitlab.com
-2. Зарегистрируйся или войди (можно через GitHub/Google)
-
-### Шаг 2. Создай пустой проект
-
-1. **New project** → **Create blank project**
-2. Project name: `freelance-portfolio` (или любое)
-3. Visibility: **Public** (Pages на free tier работает для public-проектов)
-4. **Сними галочку** «Initialize repository with a README»
-5. **Create project**
-
-GitLab покажет команды для push — они понадобятся на шаге 4.
-
-### Шаг 3. Инициализируй git локально (один раз)
+## Деплой (GitHub Pages)
 
 ```bash
 cd /home/dns/projects/freelance-portfolio
-
-git init
-git add .
-git commit -m "Initial portfolio landing for GitLab Pages"
+git add public/ scripts/ docs/ README.md
+git commit -m "Описание изменений"
+git push origin master
 ```
 
-Если git попросит имя/email:
+Через 1–3 минуты обновится https://spiritwalker84.github.io/freelance-portfolio/ (Actions → Deploy GitHub Pages).
 
-```bash
-git config user.name "Rinat"
-git config user.email "your@email.com"
-```
-
-### Шаг 4. Привяжи remote и запушь
-
-Подставь свой GitLab username вместо `YOUR_USERNAME`:
-
-```bash
-git branch -M main
-git remote add origin git@gitlab.com:YOUR_USERNAME/freelance-portfolio.git
-git push -u origin main
-```
-
-**SSH vs HTTPS:**
-
-- SSH (рекомендуется): нужен ключ на GitLab → Settings → SSH Keys
-- HTTPS: `git remote add origin https://gitlab.com/YOUR_USERNAME/freelance-portfolio.git` — при push спросит логин и Personal Access Token (не пароль)
-
-### Шаг 5. Дождись CI pipeline
-
-1. В проекте GitLab: **Build** → **Pipelines**
-2. Должен пройти job `pages` (зелёная галочка, ~1 минута)
-3. Если красный — открой job и посмотри лог
-
-Файл `.gitlab-ci.yml` уже настроен: он отдаёт папку `public/` как сайт.
-
-### Шаг 6. Получи URL сайта
-
-1. **Deploy** → **Pages** (или **Settings** → **Pages**)
-2. URL будет вида:
-
-```
-https://YOUR_USERNAME.gitlab.io/freelance-portfolio/
-```
-
-Именно эту ссылку вставляй в Kwork в поле «Портфолио» / в отклики.
-
-### Шаг 7. Обновления
-
-После правок в `public/`:
-
-```bash
-git add .
-git commit -m "Update portfolio"
-git push
-```
-
-Сайт обновится через 1–2 минуты после успешного pipeline.
-
----
-
-## Структура проекта
+## Структура
 
 ```
 freelance-portfolio/
-├── .gitlab-ci.yml      # деплой на Pages
+├── .github/workflows/deploy-pages.yml
 ├── public/
-│   ├── index.html      # лендинг
-│   ├── css/styles.css
-│   └── js/main.js
-└── README.md           # эта инструкция
+│   ├── index.html              # автоматизация
+│   ├── marketplace/            # карточки WB/Ozon
+│   ├── showcase/               # Kwork: боты
+│   ├── showcase/mp/            # Kwork: маркетплейсы
+│   ├── images/marketplace/     # слайды FGg03
+│   └── js/site-config.js
+├── deploy/portfolio-lead-api/  # форма заявки на VPS
+└── docs/HH-PORTFOLIO.md        # что давать работодателям hh
 ```
 
 ## Частые проблемы
 
 | Проблема | Решение |
 |----------|---------|
-| Pipeline не запускается | Проверь, что запушена ветка `main` и есть `.gitlab-ci.yml` |
-| Pages 404 | Подожди 2–5 мин после первого успешного pipeline |
-| Сайт без стилей | Пути в HTML относительные (`css/styles.css`) — не меняй на абсолютные без нужды |
-| Проект private | На free tier Pages для private может быть недоступен — сделай public |
+| Старый контент на сайте | Проверь push в `master` и зелёный workflow в Actions |
+| Форма на главной не шлёт | `leadApiUrl` и CORS/HTTPS на VPS; с GitHub Pages API должен отвечать по сети |
+| Kwork отклоняет ссылку | Только `showcase/` или `showcase/mp/`, без Telegram в HTML |
 
-## Дальше (опционально)
+## Опционально
 
-- Свой домен: **Settings** → **Pages** → **New domain**
-- Скриншоты кейсов: положи в `public/images/` и добавь в карточки
-- Аналитика: Яндекс.Метрика / Plausible — скрипт в `index.html`
+- Свой домен: GitHub repo → Settings → Pages → Custom domain
+- `.gitlab-ci.yml` — запасной деплой GitLab; основной канал сейчас GitHub
