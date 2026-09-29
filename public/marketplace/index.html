@@ -80,10 +80,62 @@
           <span>Могу сделать один тестовый кадр «в похожем стиле» для оценки. Полный комплект — после ваших исходников.</span>
         </div>
       </div>
+      <div class="mp-rule reveal">
+        <div class="mp-rule__mark" aria-hidden="true">01</div>
+        <div>
+          <h3 class="mp-rule__title">AI не перерисовывает ваш товар</h3>
+          <p class="mp-rule__text">Нейросеть помогает собрать сцену: интерьер, свет, модель и чистый фон. Форму, цвет и важные детали товара сверяем с исходными фотографиями до финальной вёрстки.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section section--ink" id="cases">
+  <section class="section section--ink" id="brief">
+    <div class="container">
+      <div class="section__head reveal">
+        <div class="section__index">↗</div>
+        <div class="section__head-text">
+          <div class="section__label">Quick brief</div>
+          <h2 class="section__title">Соберите сообщение за минуту</h2>
+          <p class="section__text">Ответы подставятся в черновик Telegram — останется прикрепить ссылку или фотографии товара.</p>
+        </div>
+      </div>
+      <form class="mp-brief reveal" id="mpBrief">
+        <label class="mp-brief__field">
+          <span>Товар</span>
+          <input name="product" type="text" placeholder="Например: плед-пончо" required>
+        </label>
+        <label class="mp-brief__field">
+          <span>Площадка</span>
+          <select name="platform">
+            <option>Wildberries</option>
+            <option>Ozon</option>
+            <option>WB и Ozon</option>
+            <option>Другая</option>
+          </select>
+        </label>
+        <label class="mp-brief__field">
+          <span>Сколько слайдов</span>
+          <select name="slides">
+            <option>3 слайда</option>
+            <option>6–8 слайдов</option>
+            <option>10+ слайдов / серия SKU</option>
+            <option>Нужна рекомендация</option>
+          </select>
+        </label>
+        <label class="mp-brief__field">
+          <span>Фото товара</span>
+          <select name="photos">
+            <option>Есть фото товара</option>
+            <option>Пока нет, нужен тестовый кадр</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn--primary mp-brief__submit">Продолжить в Telegram</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section" id="cases">
     <div class="container">
       <div class="section__head reveal">
         <div class="section__index">01</div>
@@ -198,7 +250,7 @@
     </div>
   </section>
 
-  <section class="section" id="packages">
+  <section class="section section--ink" id="packages">
     <div class="container">
       <div class="section__head reveal">
         <div class="section__index">02</div>
@@ -282,6 +334,7 @@
   <script src="../js/site-config.js"></script>
   <script src="../js/apply-site-config.js"></script>
   <script src="../js/marketplace-lightbox.js"></script>
+  <script src="../js/marketplace-brief.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>
