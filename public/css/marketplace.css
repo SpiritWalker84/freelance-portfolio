@@ -297,7 +297,11 @@
   display: block;
   color: var(--text);
   font-weight: 600;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.2rem;
+}
+
+.mp-map li span {
+  display: block;
 }
 
 .mp-compare {
