@@ -1,6 +1,99 @@
 /* Карточки WB/Ozon — сетка слайдов 3:4 */
 .mp-hero {
-  padding: 7rem 0 3rem;
+  padding: 6.5rem 0 2.5rem;
+  overflow: hidden;
+}
+
+.mp-hero__grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .mp-hero__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(260px, 400px);
+    gap: 3rem;
+  }
+}
+
+.mp-hero__visual {
+  position: relative;
+}
+
+.mp-hero-stack {
+  position: relative;
+  width: min(100%, 380px);
+  aspect-ratio: 4 / 5;
+  margin: 0 auto;
+}
+
+.mp-hero-stack__card {
+  position: absolute;
+  display: block;
+  width: 72%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(0, 0, 0, 0.2);
+  background: #f5f0e8;
+  animation: mp-hero-float 7s ease-in-out infinite;
+}
+
+.mp-hero-stack__card--back {
+  left: 0;
+  top: 10%;
+  transform: rotate(-9deg);
+  z-index: 1;
+  animation-delay: -2.5s;
+}
+
+.mp-hero-stack__card--mid {
+  right: 0;
+  top: 4%;
+  width: 66%;
+  transform: rotate(7deg);
+  z-index: 2;
+  animation-delay: -4.5s;
+}
+
+.mp-hero-stack__card--front {
+  left: 14%;
+  bottom: 0;
+  width: 78%;
+  transform: rotate(-2deg);
+  z-index: 3;
+}
+
+.mp-hero-stack__caption {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@keyframes mp-hero-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mp-hero-stack__card {
+    animation: none;
+  }
 }
 
 .mp-hero__title {
@@ -86,13 +179,17 @@
   overflow: hidden;
   border: 1px solid var(--border);
   background: var(--surface);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.28s ease,
+    transform 0.28s ease;
   margin: 0;
 }
 
 .mp-slide:hover {
   border-color: var(--border-strong);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.28);
+  transform: translateY(-5px);
 }
 
 .mp-slide__link {
@@ -142,6 +239,18 @@
   width: 100%;
   background: transparent;
   color: var(--text);
+  opacity: 0;
+  transition: opacity 0.22s ease, overlay 0.22s ease allow-discrete;
+}
+
+.mp-lightbox[open] {
+  opacity: 1;
+}
+
+@starting-style {
+  .mp-lightbox[open] {
+    opacity: 0;
+  }
 }
 
 .mp-lightbox::backdrop {
@@ -297,12 +406,103 @@
   color: var(--accent);
 }
 
+/* Светлая витрина кейсов */
+.section--mp-showcase {
+  --mp-showcase-text: #1c1916;
+  --mp-showcase-muted: #5a524a;
+  --mp-showcase-border: rgba(28, 25, 22, 0.12);
+  --mp-showcase-border-strong: rgba(28, 25, 22, 0.22);
+  --mp-showcase-surface: #fffdf9;
+  --mp-showcase-ink: #f3ebe0;
+
+  background: linear-gradient(165deg, #f8f4ed 0%, #efe6da 55%, #e8dfd2 100%);
+  color: var(--mp-showcase-text);
+}
+
+.section--mp-showcase .section__title,
+.section--mp-showcase .mp-case__title,
+.section--mp-showcase .mp-deep__title,
+.section--mp-showcase .mp-compare__title {
+  color: var(--mp-showcase-text);
+}
+
+.section--mp-showcase .section__text,
+.section--mp-showcase .mp-case__text,
+.section--mp-showcase .mp-deep__list,
+.section--mp-showcase .mp-map li,
+.section--mp-showcase .mp-compare__note,
+.section--mp-showcase .mp-footnote,
+.section--mp-showcase .mp-slides-hint,
+.section--mp-showcase .mp-slide figcaption,
+.section--mp-showcase .mp-compare__card figcaption {
+  color: var(--mp-showcase-muted);
+}
+
+.section--mp-showcase .mp-map li {
+  border-bottom-color: var(--mp-showcase-border);
+}
+
+.section--mp-showcase .mp-map strong,
+.section--mp-showcase .mp-deep__list strong {
+  color: var(--mp-showcase-text);
+}
+
+.section--mp-showcase .mp-slide,
+.section--mp-showcase .mp-compare__card,
+.section--mp-showcase .mp-teaser-card {
+  border-color: var(--mp-showcase-border);
+  background: var(--mp-showcase-surface);
+}
+
+.section--mp-showcase .mp-slide:hover {
+  border-color: var(--mp-showcase-border-strong);
+  box-shadow: 0 16px 40px rgba(60, 45, 30, 0.14);
+}
+
+.section--mp-showcase .mp-footnote {
+  border-top-color: var(--mp-showcase-border);
+}
+
+.section--mp-showcase .mp-case {
+  margin-bottom: 3rem;
+}
+
+.mp-slides-block__title {
+  margin: 1.5rem 0 1rem;
+}
+
+.mp-slides-more {
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .mp-slides-more {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .mp-slides--expandable:not(.is-expanded) .mp-slide--more {
+    display: none;
+  }
+
+  .mp-slides--expandable.is-expanded + .mp-slides-more {
+    display: none;
+  }
+}
+
 /* Углублённый разбор кейса */
 .mp-case--featured {
   padding: 1.75rem;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
   background: rgba(22, 20, 18, 0.55);
+}
+
+.section--mp-showcase .mp-case--featured {
+  border-color: var(--mp-showcase-border-strong);
+  background: var(--mp-showcase-surface);
+  box-shadow: 0 20px 50px rgba(50, 38, 28, 0.08);
 }
 
 .mp-deep {
