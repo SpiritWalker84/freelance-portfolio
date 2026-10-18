@@ -735,11 +735,16 @@
   .mp-gadget-layout__hero {
     grid-column: 1;
     grid-row: 1 / span 2;
+    align-self: start;
   }
 
+  /* contain — не обрезать баннеры и текст внизу обложки */
   .mp-gadget-layout__hero img {
-    height: 100%;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    object-position: center top;
   }
 
   /* 5 слайдов: обложка слева на 2 ряда, справа 2×2 */
