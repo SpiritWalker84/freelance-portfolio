@@ -684,6 +684,16 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.75rem;
   }
+
+  .mp-funnel-strip--5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 720px) {
+  .mp-funnel-strip--5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .mp-funnel-strip li {
@@ -730,6 +740,17 @@
   .mp-gadget-layout__hero img {
     height: 100%;
     object-fit: cover;
+  }
+
+  /* 5 слайдов: обложка слева на 2 ряда, справа 2×2 */
+  .mp-gadget-layout--5 {
+    grid-template-columns: 1.15fr 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .mp-gadget-layout--5 .mp-gadget-layout__hero {
+    grid-column: 1;
+    grid-row: 1 / span 2;
   }
 }
 
