@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css?v=20261018c">
-  <link rel="stylesheet" href="../css/neon.css?v=20261018c">
-  <link rel="stylesheet" href="../css/marketplace.css?v=20261018c">
+  <link rel="stylesheet" href="../css/styles.css?v=20261018d">
+  <link rel="stylesheet" href="../css/neon.css?v=20261018d">
+  <link rel="stylesheet" href="../css/marketplace.css?v=20261018d">
 </head>
 <body class="page-marketplace">
 
@@ -221,20 +221,82 @@
         </div>
       </article>
 
-      <article class="mp-case reveal" id="case-blender">
+      <article class="mp-case mp-case--gadget reveal" id="case-blender">
         <div class="mp-case__head">
-          <div class="mp-case__tags">Кейс 5 · кухня · 4 слайда</div>
-          <h3 class="mp-case__title">MIXORA — карточка портативного блендера для смузи</h3>
+          <div class="mp-case__tags">Кейс 5 · кухня · воронка вопросов покупателя</div>
+          <h3 class="mp-case__title">MIXORA — не «4 красивые картинки», а ответы по слайдам</h3>
           <p class="mp-case__text">
-            Учебный сэмпл под нишу кухонных гаджетов: один и тот же товар на всех слайдах,
-            обложка с оффером, lifestyle «в деле», комплектация с характеристиками и блок выгод.
+            Учебный сэмпл гаджета: каждый кадр закрывает свой вопрос из карточки WB.
+            Товар один, сцены разные — чтобы комплект не выглядел копией одного промпта.
           </p>
         </div>
-        <div class="mp-slides">
-          <figure class="mp-slide"><img src="../images/marketplace/case5/01_cover.jpg" alt="Обложка блендера" loading="lazy" width="450" height="600"><figcaption>01 · обложка</figcaption></figure>
-          <figure class="mp-slide"><img src="../images/marketplace/case5/02_lifestyle.jpg" alt="Lifestyle с блендером" loading="lazy" width="450" height="600"><figcaption>02 · lifestyle</figcaption></figure>
-          <figure class="mp-slide"><img src="../images/marketplace/case5/03_kit.jpg" alt="Комплектация" loading="lazy" width="450" height="600"><figcaption>03 · комплектация</figcaption></figure>
-          <figure class="mp-slide"><img src="../images/marketplace/case5/04_benefits.jpg" alt="Выгоды" loading="lazy" width="450" height="600"><figcaption>04 · выгоды</figcaption></figure>
+
+        <ol class="mp-funnel-strip" aria-label="Вопросы покупателя по слайдам">
+          <li><span class="mp-funnel-strip__n">01</span><strong>Что это?</strong><span>оффер на обложке</span></li>
+          <li><span class="mp-funnel-strip__n">02</span><strong>Как в жизни?</strong><span>действие, не постановка</span></li>
+          <li><span class="mp-funnel-strip__n">03</span><strong>Что в коробке?</strong><span>разбор + Вт / мл</span></li>
+          <li><span class="mp-funnel-strip__n">04</span><strong>Зачем брать?</strong><span>выгоды без «кислоты»</span></li>
+        </ol>
+
+        <div class="mp-gadget-layout">
+          <figure class="mp-slide mp-gadget-layout__hero">
+            <img src="../images/marketplace/case5/01_cover.jpg" alt="Обложка блендера" loading="lazy" width="450" height="600">
+            <figcaption>01 · обложка · оффер</figcaption>
+          </figure>
+          <figure class="mp-slide">
+            <img src="../images/marketplace/case5/02_lifestyle.jpg" alt="Lifestyle: наливает смузи" loading="lazy" width="450" height="600">
+            <figcaption>02 · в деле</figcaption>
+          </figure>
+          <figure class="mp-slide">
+            <img src="../images/marketplace/case5/03_kit.jpg" alt="Комплектация" loading="lazy" width="450" height="600">
+            <figcaption>03 · комплектация</figcaption>
+          </figure>
+          <figure class="mp-slide">
+            <img src="../images/marketplace/case5/04_benefits.jpg" alt="Выгоды" loading="lazy" width="450" height="600">
+            <figcaption>04 · выгоды · в сумку</figcaption>
+          </figure>
+        </div>
+
+        <div class="mp-breakdown-wrap">
+          <button
+            type="button"
+            class="mp-breakdown-toggle"
+            id="blenderBreakdownBtn"
+            aria-expanded="false"
+            aria-controls="blenderBreakdown"
+            data-breakdown-toggle
+            data-closed-label="Логика воронки"
+            data-open-label="Скрыть логику"
+          >
+            <span class="mp-breakdown-toggle__text">Логика воронки</span>
+            <span class="mp-breakdown-toggle__chev" aria-hidden="true"></span>
+          </button>
+
+          <div class="mp-breakdown" id="blenderBreakdown" data-breakdown hidden>
+            <div class="mp-breakdown__clip">
+              <div class="mp-breakdown__inner">
+                <div class="mp-gadget-logic">
+                  <div class="mp-gadget-logic__card">
+                    <h4 class="mp-deep__title">Чем гаджет отличается от beauty</h4>
+                    <p class="mp-compare__note" style="margin:0">
+                      В парфюме важны эмоция и ноты. Здесь покупатель сразу ищет мощность, объём, комплектацию
+                      и «влезет ли в сумку» — поэтому слайд 03 и 04 не дублируют ягоды с обложки.
+                    </p>
+                  </div>
+                  <div class="mp-gadget-logic__card">
+                    <h4 class="mp-deep__title">Как избежали однотипности</h4>
+                    <ul class="mp-deep__list">
+                      <li><strong>01</strong> — студия, манго (первый экран)</li>
+                      <li><strong>02</strong> — действие: наливает зелёный смузи</li>
+                      <li><strong>03</strong> — разбор комплектации, без фруктов</li>
+                      <li><strong>04</strong> — сценарий «на работу», другой контекст</li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="mp-footnote">В заказе на реальный блендер сверяем корпус, кнопки и цвет с фото селлера — AI только для сцен и света.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
     </div>
@@ -400,12 +462,12 @@
     <span id="themeToggleLabel">Неон: вкл</span>
   </button>
 
-  <script src="../js/site-config.js?v=20261018c"></script>
-  <script src="../js/apply-site-config.js?v=20261018c"></script>
-  <script src="../js/marketplace-lightbox.js?v=20261018c"></script>
-  <script src="../js/marketplace-case-expand.js?v=20261018c"></script>
-  <script src="../js/marketplace-breakdown.js?v=20261018c"></script>
-  <script src="../js/marketplace-brief.js?v=20261018c"></script>
-  <script src="../js/main.js?v=20261018c"></script>
+  <script src="../js/site-config.js?v=20261018d"></script>
+  <script src="../js/apply-site-config.js?v=20261018d"></script>
+  <script src="../js/marketplace-lightbox.js?v=20261018d"></script>
+  <script src="../js/marketplace-case-expand.js?v=20261018d"></script>
+  <script src="../js/marketplace-breakdown.js?v=20261018d"></script>
+  <script src="../js/marketplace-brief.js?v=20261018d"></script>
+  <script src="../js/main.js?v=20261018d"></script>
 </body>
 </html>

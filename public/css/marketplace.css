@@ -659,6 +659,103 @@
   border-top: 1px dashed var(--border);
 }
 
+/* Кейс гаджета — другая компоновка, не сетка 3 в ряд */
+.mp-case--gadget {
+  padding: 1.75rem;
+  border: 1px solid var(--mp-showcase-border-strong, var(--border-strong));
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(224, 120, 64, 0.1), transparent 55%),
+    var(--mp-showcase-surface, var(--surface));
+  box-shadow: 0 18px 48px rgba(50, 38, 28, 0.07);
+}
+
+.mp-funnel-strip {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .mp-funnel-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+.mp-funnel-strip li {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.85rem 0.9rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--mp-showcase-border, var(--border));
+  background: rgba(255, 253, 249, 0.85);
+  font-size: 0.82rem;
+  color: var(--mp-showcase-muted, var(--muted));
+}
+
+.mp-funnel-strip__n {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.mp-funnel-strip strong {
+  color: var(--mp-showcase-text, var(--text));
+  font-size: 0.92rem;
+}
+
+.mp-gadget-layout {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .mp-gadget-layout {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    align-items: stretch;
+  }
+
+  .mp-gadget-layout__hero {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .mp-gadget-layout__hero img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.mp-gadget-logic {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .mp-gadget-logic {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.mp-gadget-logic__card {
+  padding: 1.1rem 1.15rem;
+  border: 1px solid var(--mp-showcase-border, var(--border));
+  border-radius: var(--radius);
+  background: rgba(255, 253, 249, 0.75);
+}
+
+.section--mp-showcase .mp-funnel-strip li,
+.section--mp-showcase .mp-gadget-logic__card {
+  border-color: var(--mp-showcase-border);
+}
+
 /* Раскрывающийся разбор кейса */
 .mp-breakdown-wrap {
   margin-top: 1.75rem;

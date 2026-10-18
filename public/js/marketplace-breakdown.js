@@ -18,7 +18,8 @@
     panel.style.height = "";
     btn.classList.remove("is-open");
     btn.setAttribute("aria-expanded", "false");
-    label.textContent = "Показать разбор";
+    const closedLabel = btn.dataset.closedLabel || "Показать разбор";
+    label.textContent = closedLabel;
 
     let animating = false;
 
@@ -41,7 +42,9 @@
 
       btn.classList.toggle("is-open", open);
       btn.setAttribute("aria-expanded", open ? "true" : "false");
-      label.textContent = open ? "Скрыть разбор" : "Показать разбор";
+      const openLabel = btn.dataset.openLabel || "Скрыть разбор";
+      const closedLabel = btn.dataset.closedLabel || "Показать разбор";
+      label.textContent = open ? openLabel : closedLabel;
 
       if (reduceMotion) {
         panel.hidden = !open;
