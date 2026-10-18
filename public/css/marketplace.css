@@ -714,23 +714,27 @@
 }
 
 .mp-breakdown {
-  display: grid;
-  grid-template-rows: 0fr;
+  height: 0;
+  overflow: hidden;
   opacity: 0;
+  margin-top: 0;
   transition:
-    grid-template-rows 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.35s ease;
+    height 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease,
+    margin-top 0.35s ease;
 }
 
 .mp-breakdown.is-open {
-  grid-template-rows: 1fr;
   opacity: 1;
   margin-top: 1.25rem;
 }
 
+.mp-breakdown[hidden] {
+  display: none;
+}
+
 .mp-breakdown__clip {
   overflow: hidden;
-  min-height: 0;
 }
 
 .mp-breakdown__inner {
@@ -739,12 +743,10 @@
 
 .mp-breakdown__inner > * {
   opacity: 0;
-  transform: translateY(16px);
-  filter: blur(2px);
+  transform: translateY(14px);
   transition:
     opacity 0.45s ease,
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.45s ease;
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .mp-breakdown.is-open .mp-breakdown__inner > *:nth-child(1) {
@@ -760,12 +762,6 @@
 .mp-breakdown.is-open .mp-breakdown__inner > * {
   opacity: 1;
   transform: translateY(0);
-  filter: none;
-}
-
-.mp-breakdown:not(.is-open) .mp-breakdown__inner > * {
-  transition-duration: 0.18s;
-  transition-delay: 0s;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -774,16 +770,6 @@
   .mp-breakdown-toggle,
   .mp-breakdown-toggle__chev {
     transition: none !important;
-    filter: none !important;
-  }
-
-  .mp-breakdown:not(.is-open) {
-    display: none;
-  }
-
-  .mp-breakdown.is-open {
-    display: block;
-    opacity: 1;
   }
 
   .mp-breakdown.is-open .mp-breakdown__inner > * {
