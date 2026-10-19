@@ -153,6 +153,49 @@
   max-width: 46rem;
 }
 
+/* Компактный маркетинговый бриф кейса */
+.mp-mkt {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1rem 0 0;
+  max-width: 52rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--mp-showcase-border, var(--border));
+  background: rgba(255, 253, 249, 0.72);
+  font-size: 0.88rem;
+  color: var(--mp-showcase-muted, var(--muted));
+}
+
+.mp-mkt p {
+  margin: 0;
+}
+
+.mp-mkt strong {
+  color: var(--mp-showcase-text, var(--text));
+  font-weight: 600;
+}
+
+.mp-mkt__row {
+  display: grid;
+  gap: 0.15rem;
+}
+
+@media (min-width: 720px) {
+  .mp-mkt {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .mp-mkt__row--full {
+    grid-column: 1 / -1;
+  }
+}
+
+.section--mp-showcase .mp-mkt {
+  border-color: var(--mp-showcase-border);
+}
+
 /* Не больше 3 колонок — иначе слайды 900×1200 сжимаются до «полоски» */
 .mp-slides {
   display: grid;
