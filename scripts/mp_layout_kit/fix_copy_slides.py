@@ -202,10 +202,20 @@ def fix_poncho_benefits():
     positions = [(48, 700), (474, 700), (48, 920), (474, 920)]
     for text, (x, y) in zip(items, positions):
         draw.rounded_rectangle((x, y, x + 378, y + 180), 24, fill=(255, 255, 255))
-        font = fnt(30, True)
-        bb = draw.textbbox((0, 0), text, font=font)
-        tw, th = bb[2] - bb[0], bb[3] - bb[1]
-        draw.text((x + (378 - tw) / 2, y + (180 - th) / 2 - 4), text, font=font, fill=ink)
+        font = fnt(28, True)
+        # Prefer natural break on em dash / hyphen for long lines
+        if " — " in text:
+            a, b = text.split(" — ", 1)
+            lines = [a, "— " + b]
+        else:
+            lines = [text]
+        line_h = 34
+        total = line_h * len(lines)
+        ty = y + (180 - total) / 2
+        for i, line in enumerate(lines):
+            bb = draw.textbbox((0, 0), line, font=font)
+            tw = bb[2] - bb[0]
+            draw.text((x + (378 - tw) / 2, ty + i * line_h), line, font=font, fill=ink)
 
     out.save(IMG / "case3" / "03_benefits.jpg", quality=92, optimize=True)
     print("fixed poncho benefits")
@@ -259,15 +269,19 @@ def fix_poncho_care():
     photo = fit_cover(fabric, (400, 980))
     paste_rounded(out, photo, (40, 140), 24)
 
-    y = 160
-    for item in c["items"]:
-        draw.rounded_rectangle((470, y, W - 40, y + 150), 22, fill=(255, 255, 255))
+    items = c["items"]
+    card_h = 170
+    gap = 28
+    block = len(items) * card_h + (len(items) - 1) * gap
+    y = 140 + max(0, (980 - block) // 2)
+    for item in items:
+        draw.rounded_rectangle((470, y, W - 40, y + card_h), 22, fill=(255, 255, 255))
         font = fnt(28)
         line = "•  " + item
         bb = draw.textbbox((0, 0), line, font=font)
         th = bb[3] - bb[1]
-        draw.text((500, y + (150 - th) / 2 - 4), line, font=font, fill=ink)
-        y += 175
+        draw.text((500, y + (card_h - th) / 2 - 4), line, font=font, fill=ink)
+        y += card_h + gap
 
     out.save(IMG / "case3" / "05_care.jpg", quality=92, optimize=True)
     print("fixed poncho care")

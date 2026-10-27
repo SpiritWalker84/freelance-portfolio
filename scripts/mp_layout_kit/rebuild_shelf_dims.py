@@ -157,19 +157,24 @@ def build() -> Path:
     draw.line((fx1, fbot + 2, fx1, dim_y - 8), fill=LINE, width=1)
     dim_h(draw, fx0, fx1, dim_y, "720 мм", label_font, gap=0)
 
-    # Side view — depth
-    side_box = (560, diagram_top, 830, diagram_top + 160)
+    # Side view — depth + height (board thickness)
+    side_box = (560, diagram_top, 800, diagram_top + 160)
     draw.text((560, diagram_top - 28), "вид сбоку", font=caption_font, fill=MUTED)
     bx0, top, bx1, bot, wall_x = draw_side_shelf(draw, side_box)
-    # depth dim BELOW the board, measuring wall→front (actual depth of shelf)
+    # depth dim BELOW the board, wall → front
     dim_y2 = bot + 36
     draw.line((bx0, bot + 2, bx0, dim_y2 - 8), fill=LINE, width=1)
     draw.line((bx1, bot + 2, bx1, dim_y2 - 8), fill=LINE, width=1)
     dim_h(draw, bx0, bx1, dim_y2, "150 мм", label_font, gap=0)
+    # height dim to the RIGHT of the board face
+    dim_x = bx1 + 28
+    draw.line((bx1 + 2, top, dim_x - 8, top), fill=LINE, width=1)
+    draw.line((bx1 + 2, bot, dim_x - 8, bot), fill=LINE, width=1)
+    dim_v(draw, top, bot, dim_x, "50 мм", fnt(22, True), gap=10)
 
     # helper labels under diagrams
     draw.text((70, dim_y + 28), "длина", font=caption_font, fill=MUTED)
-    draw.text((560, dim_y2 + 28), "глубина", font=caption_font, fill=MUTED)
+    draw.text((560, dim_y2 + 28), "глубина · высота", font=caption_font, fill=MUTED)
 
     # --- Spec chips (tight under diagrams — avoid empty mid band) ---
     chip_y = max(dim_y, dim_y2) + 78
