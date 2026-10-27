@@ -60,7 +60,8 @@ def chip(draw, xy, w, h, label, value):
 def build() -> Path:
     out = Image.new("RGB", (W, H), BG)
     draw = ImageDraw.Draw(out)
-    text_center(draw, "Размеры и нагрузка", 18, fnt(36, True), INK)
+    # Title needs clear air above the photo (was overlapping at py≈52)
+    text_center(draw, "Размеры и нагрузка", 28, fnt(36, True), INK)
 
     # Large lifestyle — fills top, kills empty mid
     src = IMG / "case2" / "01_cover.jpg"
@@ -69,9 +70,9 @@ def build() -> Path:
     photo = Image.open(src).convert("RGB")
     sw, sh = photo.size
     crop = photo.crop((int(sw * 0.04), int(sh * 0.26), int(sw * 0.96), int(sh * 0.60)))
-    panel_w, panel_h = 852, 500
+    panel_w, panel_h = 852, 470
     panel = fit_cover(crop, (panel_w, panel_h))
-    px, py = (W - panel_w) // 2, 52
+    px, py = (W - panel_w) // 2, 96
     shad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     ImageDraw.Draw(shad).rounded_rectangle(
         (px + 2, py + 6, px + panel_w + 2, py + panel_h + 6), 20, fill=(0, 0, 0, 30)
