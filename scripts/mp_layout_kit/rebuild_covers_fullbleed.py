@@ -51,9 +51,11 @@ def draw_bottom_copy(im: Image.Image, title: str, sub: str, title_size=42, sub_s
     gap = 12
     block = th + gap + sh
     y0 = H - GRAD_H
-    ty = y0 + int(GRAD_H * 0.28)
-    if ty + block > H - 28:
-        ty = H - 28 - block
+    # Keep clear air above the bottom edge (was clipping on chair cover)
+    bottom_pad = 56
+    ty = y0 + int(GRAD_H * 0.18)
+    if ty + block > H - bottom_pad:
+        ty = H - bottom_pad - block
     draw.text(((W - tw) / 2, ty), title, font=ft, fill=(255, 255, 255))
     draw.text(((W - sw) / 2, ty + th + gap), sub, font=fs, fill=(236, 232, 238))
     return im
