@@ -145,13 +145,13 @@ def rebuild_shelf():
 
 
 def rebuild_chair():
+    """Title above the chair on the wall — white-on-cream seat had weak contrast."""
     c = COPY["case1_chair"]["01_cover"]
     src = Image.open(IMG / "case1" / "01_cover_interior.png").convert("RGB")
     src = crop_above_dark_bar(src, dark_thresh=100, min_y_frac=0.68)
     base = fit_cover(src, (W, H))
-    base = soft_bottom_gradient(base, strength=200).convert("RGB")
-    # title + sub from locked copy (not the long baked line)
-    draw_bottom_copy(base, c["title"], c["sub"], title_size=36, sub_size=23)
+    base = soft_top_scrim(base, height=210, strength=150).convert("RGB")
+    draw_top_copy(base, c["title"], c["sub"], title_size=38, sub_size=24, fill=(42, 36, 32), sub_fill=(95, 88, 80))
     save_png(base, IMG / "case1" / "01_cover_interior.png")
     print("chair cover")
 
