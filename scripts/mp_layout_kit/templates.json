@@ -1,0 +1,98 @@
+{
+  "format": { "w": 900, "h": 1200, "ratio": "3:4" },
+  "sources": [
+    "https://mobz.io/blog/infografika-kartochki-trebovaniya-slajdy",
+    "https://fotofactor.ru/blog/infographics-templates",
+    "https://www.gdefoto.com/stati-o-obrabotke-fotografij/kak-sdelat-infografiku-dlja-kartochki-tovara/"
+  ],
+  "funnel": [
+    "cover",
+    "usp_or_benefits",
+    "dims_or_specs",
+    "lifestyle",
+    "kit_or_care",
+    "compare_or_proof"
+  ],
+  "templates": [
+    {
+      "id": "cover_hero_usp",
+      "role": "cover",
+      "grid": "full-bleed product · bottom panel 18–22% · 1 USP + optional chips",
+      "ai_photo": "packshot or light interior, product ≥55% frame",
+      "text_budget": "1 headline ≤6 words, 0–1 fact",
+      "avoid": "5+ pills, price, contacts"
+    },
+    {
+      "id": "usp_side_rail",
+      "role": "benefits",
+      "grid": "product right/center · 3 vertical pills left · brand/title top",
+      "ai_photo": "lifestyle with clean negative space on one side",
+      "text_budget": "3 short facts, ALL CAPS ok",
+      "avoid": "identical pill stack under photo"
+    },
+    {
+      "id": "benefits_2x2",
+      "role": "benefits",
+      "grid": "header strip · photo top 40% · 2×2 benefit tiles bottom",
+      "ai_photo": "studio or cropped hero",
+      "text_budget": "4 tiles · icon/number + 1 line",
+      "avoid": "4 identical full-width rows"
+    },
+    {
+      "id": "dims_callouts",
+      "role": "dimensions",
+      "grid": "product center · dimension ticks on edges · 1–2 facts in corners",
+      "ai_photo": "clean studio, room for margins",
+      "text_budget": "3–4 numbers on product + material/load",
+      "avoid": "long bullet essay below photo"
+    },
+    {
+      "id": "specs_icon_list",
+      "role": "specs",
+      "grid": "title · product left 45% · icon+label+value list right",
+      "ai_photo": "contain on soft panel",
+      "text_budget": "4–6 params",
+      "avoid": "wall of text >15 words/block"
+    },
+    {
+      "id": "kit_flatlay",
+      "role": "kit",
+      "grid": "title · flatlay/product · checklist bottom or callouts",
+      "ai_photo": "flat lay of set pieces",
+      "text_budget": "5–7 kit lines",
+      "avoid": "only text without visual set"
+    },
+    {
+      "id": "lifestyle_caption",
+      "role": "lifestyle",
+      "grid": "full scene · thin bottom caption bar",
+      "ai_photo": "use-in-context scene",
+      "text_budget": "1 line scenario",
+      "avoid": "dense infographic overlay"
+    },
+    {
+      "id": "compare_split",
+      "role": "compare",
+      "grid": "50/50 columns · ours ✓ vs typical ✗ · no brand names",
+      "ai_photo": "optional small product in header",
+      "text_budget": "3–4 rows",
+      "avoid": "naming competitors"
+    },
+    {
+      "id": "care_steps",
+      "role": "care",
+      "grid": "title · 3 numbered steps horizontal or stacked · short rules",
+      "ai_photo": "optional detail crop",
+      "text_budget": "3 steps + 2 don'ts",
+      "avoid": "legal wall of text"
+    },
+    {
+      "id": "material_macro",
+      "role": "material",
+      "grid": "macro 50% · composition % · 3 proof chips",
+      "ai_photo": "fabric/material close-up",
+      "text_budget": "composition + 3 claims",
+      "avoid": "unverifiable superlatives"
+    }
+  ]
+}
