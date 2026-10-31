@@ -142,8 +142,18 @@ html[data-theme="neon"] .browser__screen--tg {
   box-shadow: inset 0 0 40px rgba(255, 113, 57, 0.06);
 }
 
-html[data-theme="neon"] .case-row:hover {
+html[data-theme="neon"] .case-row:hover,
+html[data-theme="neon"] .case-acc__summary:hover,
+html[data-theme="neon"] .case-acc[open] .case-acc__summary {
   box-shadow: inset 3px 0 0 var(--accent), 0 0 20px rgba(255, 113, 57, 0.06);
+}
+
+html[data-theme="neon"] .case-acc__tags {
+  text-shadow: 0 0 8px rgba(255, 113, 57, 0.2);
+}
+
+html[data-theme="neon"] .case-acc[open] .case-acc__chev {
+  box-shadow: 0 0 12px rgba(255, 113, 57, 0.25);
 }
 
 html[data-theme="neon"] .marquee-wrap {

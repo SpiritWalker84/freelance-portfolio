@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ринат — автоматизация для бизнеса</title>
-  <meta name="description" content="Контур заявки: сайт или бот → таблица → Telegram. Python, FastAPI, n8n, лендинги с backend.">
+  <title>Ринат — боты, сайты и заявки для бизнеса</title>
+  <meta name="description" content="Telegram-боты и сайты: клиент оставляет заявку — менеджер сразу получает её в Telegram или таблицу. Python, FastAPI, деплой на VPS.">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/neon.css">
-  <link rel="stylesheet" href="css/marketplace.css">
 </head>
 <body>
   <header class="header" id="header">
@@ -20,16 +19,15 @@
         <div class="logo__mark" aria-hidden="true"></div>
         <div class="logo__text">
           <span class="logo__name">Ринат</span>
-          <span class="logo__tag">боты · AI · автоматизация</span>
+          <span class="logo__tag">боты · сайты · заявки</span>
         </div>
       </a>
       <nav class="nav" id="nav">
         <a href="#services">Услуги</a>
         <a href="#packages">Пакеты</a>
-        <a href="#cases">Кейсы</a>
-        <a href="marketplace/">Карточки WB</a>
-        <a href="#visual">Визуал</a>
-        <a href="#process">Процесс</a>
+        <a href="#cases">Работы</a>
+        <a href="#visual">Примеры</a>
+        <a href="#process">Как работаю</a>
         <a href="#contact">Контакт</a>
       </nav>
       <div class="header__actions">
@@ -49,28 +47,28 @@
 
     <div class="container hero__layout">
       <div class="hero__main reveal">
-        <div class="prod-label">Заявки · боты · интеграции</div>
-        <h1 class="hero__title">Заявка не теряется</h1>
+        <div class="prod-label">Боты · сайты · заявки</div>
+        <h1 class="hero__title">Хватит терять заявки&nbsp;— бот принесёт их в&nbsp;Telegram</h1>
         <p class="hero__lead">
-          Сайт или Telegram/VK-бот → Google Таблица → уведомление менеджеру.
-          При необходимости n8n, CRM и короткая LLM-метка лида. Python, FastAPI, деплой на VPS.
+          Собираю Telegram-ботов и сайты под ключ: клиент оставляет контакт — строка в таблице
+          и сообщение менеджеру. Без штатного программиста, с запуском и инструкцией.
         </p>
         <div class="hero__actions">
-          <a href="#contact" class="btn btn--primary">Оставить задачу</a>
-          <a href="#" class="btn btn--ghost site-link" data-site-link="kwork">Kwork</a>
+          <a href="#contact" class="btn btn--primary">Написать задачу</a>
+          <a href="#" class="btn btn--ghost site-link" data-site-link="kwork">Смотреть на Kwork</a>
         </div>
         <div class="hero__meta">
           <div class="meta-item">
-            <div class="meta-item__val">5+</div>
-            <div class="meta-item__lbl">Кейсов с деплоем</div>
+            <div class="meta-item__val">Боты</div>
+            <div class="meta-item__lbl">Заявки и меню</div>
           </div>
           <div class="meta-item">
-            <div class="meta-item__val">TG·VK</div>
-            <div class="meta-item__lbl">Боты и заявки</div>
+            <div class="meta-item__val">Сайты</div>
+            <div class="meta-item__lbl">С формой заявки</div>
           </div>
           <div class="meta-item">
-            <div class="meta-item__val">AI</div>
-            <div class="meta-item__lbl">LLM-сценарии</div>
+            <div class="meta-item__val">Под ключ</div>
+            <div class="meta-item__lbl">Деплой и инструкция</div>
           </div>
         </div>
       </div>
@@ -79,73 +77,73 @@
         <div class="console-panel">
           <div class="console-panel__bar">
             <span class="console-panel__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="console-panel__title">заявка</span>
+            <span class="console-panel__title">Напишите задачу</span>
           </div>
           <div class="console-panel__log" aria-hidden="true">
-            <span class="console-line"><span class="console-ok">✓</span> bot-api <span class="console-dim">online</span></span>
-            <span class="console-line"><span class="console-ok">✓</span> webhook <span class="console-dim">telegram подключён</span></span>
-            <span class="console-line console-line--dim"> ожидаю ввод…</span>
+            <span class="console-line"><span class="console-ok">✓</span> форма <span class="console-dim">готова</span></span>
+            <span class="console-line"><span class="console-ok">✓</span> ответ <span class="console-dim">обычно в тот же день</span></span>
+            <span class="console-line console-line--dim"> коротко опишите, что нужно</span>
           </div>
           <form class="console-form" id="leadForm" novalidate>
             <input type="text" name="website" class="console-form__hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="console-form__field">
               <label class="console-form__label" for="leadName">
-                <span class="console-prompt">имя</span>
+                <span class="console-prompt">Имя</span>
               </label>
               <input class="console-form__input" id="leadName" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required>
             </div>
             <div class="console-form__field">
               <label class="console-form__label" for="leadContact">
-                <span class="console-prompt">контакт</span>
+                <span class="console-prompt">Telegram или телефон</span>
               </label>
-              <input class="console-form__input" id="leadContact" name="contact" type="text" autocomplete="tel" placeholder="@telegram или телефон" required>
+              <input class="console-form__input" id="leadContact" name="contact" type="text" autocomplete="tel" placeholder="@username или +7…" required>
             </div>
             <div class="console-form__field">
               <label class="console-form__label" for="leadTask">
-                <span class="console-prompt">опишите задачу</span>
+                <span class="console-prompt">Что нужно сделать</span>
               </label>
-              <textarea class="console-form__input console-form__input--area" id="leadTask" name="task" rows="2" placeholder="Бот, парсер, лендинг — коротко, что нужно сделать" required></textarea>
+              <textarea class="console-form__input console-form__input--area" id="leadTask" name="task" rows="2" placeholder="Например: бот для заявок, сайт с формой, парсер" required></textarea>
             </div>
-            <button class="console-form__submit btn btn--primary" type="submit">→ Отправить заявку</button>
+            <button class="console-form__submit btn btn--primary" type="submit">→ Отправить</button>
           </form>
           <div class="console-panel__foot">
-            <span class="console-panel__status">● контур заявки</span>
-            <span class="console-panel__meta">API или Telegram</span>
+            <span class="console-panel__status">● без спама</span>
+            <span class="console-panel__meta">Отвечу с вопросами по задаче</span>
           </div>
         </div>
 
       <aside class="hero__dock">
         <div class="dock__head">
-          <span>services.queue</span>
+          <span>Чем могу помочь</span>
           <div class="dock__dots" aria-hidden="true"><span></span><span></span><span></span></div>
         </div>
         <div class="dock__body">
           <div class="dock__row">
             <span class="dock__num">01</span>
             <div>
-              <strong>Бот с заявками</strong>
-              <span>Диалог, сбор данных, уведомление менеджеру</span>
+              <strong>Бот для заявок</strong>
+              <span>Клиент пишет боту — менеджер получает сообщение</span>
             </div>
           </div>
           <div class="dock__row">
             <span class="dock__num">02</span>
             <div>
-              <strong>AI-консультант</strong>
-              <span>LLM-ответы, сценарии, VK/Telegram</span>
+              <strong>Бот-консультант</strong>
+              <span>Отвечает на частые вопросы и собирает контакт</span>
             </div>
           </div>
           <div class="dock__row">
             <span class="dock__num">03</span>
             <div>
-              <strong>Парсер / мониторинг</strong>
-              <span>Сбор данных, фильтры, расписание</span>
+              <strong>Сбор данных</strong>
+              <span>Парсер каналов и мониторинг по расписанию</span>
             </div>
           </div>
           <div class="dock__row">
             <span class="dock__num">04</span>
             <div>
-              <strong>Лендинг + backend</strong>
-              <span>Форма, API, nginx, VPS</span>
+              <strong>Сайт с заявкой</strong>
+              <span>Лендинг, форма, уведомление менеджеру</span>
             </div>
           </div>
         </div>
@@ -188,33 +186,33 @@
       <div class="section__head reveal">
         <div class="section__index">01</div>
         <div class="section__head-text">
-          <div class="section__label">Services</div>
-          <h2 class="section__title">Что делаю для заказчиков</h2>
-          <p class="section__text">Работающий код и деплой — не макет ради макета. Беру задачи, где результат можно запустить и передать.</p>
+          <div class="section__label">Услуги</div>
+          <h2 class="section__title">Что могу сделать</h2>
+          <p class="section__text">Не макет «на посмотреть», а рабочий бот или сайт: запускаю, отдаю инструкцию, вы пользуетесь.</p>
         </div>
       </div>
       <div class="service-rows">
         <article class="service-row reveal">
           <span class="service-row__num">A</span>
           <div>
-            <h3 class="service-row__title">Чат-боты и заявки</h3>
-            <p class="service-row__desc">Меню, сбор контактов, интеграция с таблицами или CRM, уведомления админу в Telegram.</p>
+            <h3 class="service-row__title">Боты и заявки</h3>
+            <p class="service-row__desc">Меню, сбор имени и телефона, строка в таблице, сообщение менеджеру в Telegram.</p>
           </div>
           <span class="service-row__tag">Telegram / VK</span>
         </article>
         <article class="service-row reveal">
           <span class="service-row__num">B</span>
           <div>
-            <h3 class="service-row__title">AI-агенты и консультанты</h3>
-            <p class="service-row__desc">Диалог на LLM, ограничение сценария, эскалация сложных кейсов человеку.</p>
+            <h3 class="service-row__title">Умный консультант</h3>
+            <p class="service-row__desc">Бот отвечает по вашим текстам. Сложный вопрос — переводит человеку.</p>
           </div>
-          <span class="service-row__tag">AI / LLM</span>
+          <span class="service-row__tag">AI</span>
         </article>
         <article class="service-row reveal">
           <span class="service-row__num">C</span>
           <div>
-            <h3 class="service-row__title">Парсеры и автоматизация</h3>
-            <p class="service-row__desc">Telethon, Playwright, cron, сохранение в БД, фильтрация и отчёты.</p>
+            <h3 class="service-row__title">Автосбор данных</h3>
+            <p class="service-row__desc">Сбор постов из каналов, фильтры, отчёты по расписанию.</p>
           </div>
           <span class="service-row__tag">Python</span>
         </article>
@@ -228,8 +226,8 @@
         <div class="section__index">↗</div>
         <div class="section__head-text">
           <div class="section__label">Kwork</div>
-          <h2 class="section__title">Пакеты для заказа</h2>
-          <p class="section__text">Готовые форматы: боты и лендинги. Точная цена и состав — в кворке на Kwork после уточнения ТЗ.</p>
+          <h2 class="section__title">Готовые форматы заказа</h2>
+          <p class="section__text">Выберите понятный пакет. Точная цена и состав — на Kwork после короткого уточнения задачи.</p>
         </div>
       </div>
 
@@ -243,10 +241,10 @@
           <h3 class="package-card__title">Бот с меню</h3>
           <p class="package-card__price">от 2 500 ₽</p>
           <ul class="package-card__list">
-            <li>Приветствие и кнопки / команды</li>
-            <li>2–4 раздела (услуги, цены, контакты)</li>
-            <li>Тексты и структура под ваш бизнес</li>
-            <li>Инструкция по запуску</li>
+            <li>Приветствие и кнопки</li>
+            <li>2–4 раздела: услуги, цены, контакты</li>
+            <li>Тексты под ваш бизнес</li>
+            <li>Инструкция, как запустить</li>
           </ul>
           <a href="#" class="package-card__link" data-kwork-gig="menu">Заказать на Kwork →</a>
         </article>
@@ -255,13 +253,13 @@
             <span class="package-card__tier">Популярный</span>
             <span class="package-card__term">3–5 дней</span>
           </div>
-          <h3 class="package-card__title">Контур заявки (бот)</h3>
+          <h3 class="package-card__title">Бот: заявки менеджеру</h3>
           <p class="package-card__price">от 8 000 ₽</p>
           <ul class="package-card__list">
-            <li>Диалог или форма сбора данных</li>
-            <li>Строка в Google Таблице + ping в Telegram</li>
-            <li>Меню, FAQ, типовые ответы</li>
-            <li>Деплой на VPS или хостинг</li>
+            <li>Бот собирает имя, телефон, задачу</li>
+            <li>Строка в Google Таблице + сообщение вам в Telegram</li>
+            <li>Меню и ответы на частые вопросы</li>
+            <li>Запуск на сервере</li>
           </ul>
           <a href="#" class="package-card__link" data-kwork-gig="zayavki">Заказать на Kwork →</a>
         </article>
@@ -270,54 +268,54 @@
             <span class="package-card__tier">Pro</span>
             <span class="package-card__term">5–8 дней</span>
           </div>
-          <h3 class="package-card__title">AI-консультант</h3>
+          <h3 class="package-card__title">Бот-консультант</h3>
           <p class="package-card__price">от 8 000 ₽</p>
           <ul class="package-card__list">
-            <li>Ответы на LLM по вашей базе знаний</li>
-            <li>Ограничение тем и эскалация человеку</li>
-            <li>Сбор заявки и ping админу</li>
-            <li>Telegram или VK</li>
+            <li>Отвечает по вашим текстам и прайсу</li>
+            <li>Сложное — передаёт человеку</li>
+            <li>Собирает заявку и пишет вам</li>
+            <li>Telegram или ВКонтакте</li>
           </ul>
           <a href="#" class="package-card__link" data-kwork-gig="ai">Заказать на Kwork →</a>
         </article>
       </div>
 
-      <p class="packages__group reveal">Лендинги</p>
+      <p class="packages__group reveal">Сайты</p>
       <div class="packages-grid packages-grid--2 reveal">
         <article class="package-card">
           <div class="package-card__head">
-            <span class="package-card__tier">Landing</span>
+            <span class="package-card__tier">Сайт</span>
             <span class="package-card__term">3–4 дня</span>
           </div>
-          <h3 class="package-card__title">Лендинг-страница</h3>
+          <h3 class="package-card__title">Лендинг</h3>
           <p class="package-card__price">от 5 000 ₽</p>
           <ul class="package-card__list">
-            <li>Hero и 3–5 секций под ваш бизнес</li>
-            <li>Адаптив, форма заявки</li>
-            <li>Анимации, базовая SEO-разметка</li>
-            <li>Передача исходников и инструкция</li>
+            <li>Главный экран и 3–5 блоков</li>
+            <li>Удобно с телефона, форма заявки</li>
+            <li>Лёгкие анимации</li>
+            <li>Исходники и инструкция</li>
           </ul>
           <a href="#" class="package-card__link" data-kwork-gig="landing">Заказать на Kwork →</a>
         </article>
         <article class="package-card package-card--featured">
           <div class="package-card__head">
-            <span class="package-card__tier">Full stack</span>
+            <span class="package-card__tier">Сайт + заявки</span>
             <span class="package-card__term">4–6 дней</span>
           </div>
-          <h3 class="package-card__title">Лендинг + backend</h3>
+          <h3 class="package-card__title">Лендинг: заявки на сервере</h3>
           <p class="package-card__price">от 8 000 ₽</p>
           <ul class="package-card__list">
-            <li>Премиальная вёрстка, каталог / галерея</li>
-            <li>FastAPI form-api, валидация заявок</li>
-            <li>nginx, деплой на VPS</li>
-            <li>Примеры — в разделе «Визуал» ниже</li>
+            <li>Вёрстка, каталог или галерея</li>
+            <li>Форма работает: заявка уходит менеджеру</li>
+            <li>Запуск на вашем или моём сервере</li>
+            <li>Примеры — в блоке «Примеры» ниже</li>
           </ul>
           <a href="#" class="package-card__link" data-kwork-gig="zayavki">Заказать на Kwork →</a>
         </article>
       </div>
 
-      <p class="packages__note reveal">Сопровождение после запуска: мониторинг бота/импорта, мелкие правки — от 3 000 ₽/мес (обсуждается отдельно).</p>
-      <p class="packages__note reveal">Для отклика на Kwork — демо <strong>без контактов</strong>: <a href="showcase/" class="packages__note-link">showcase/</a> (боты) · <a href="showcase/mp/" class="packages__note-link">showcase/mp/</a> (карточки WB). Не главную страницу.</p>
+      <p class="packages__note reveal">После запуска могу вести бот или сайт: мелкие правки и проверка работы — от 3 000 ₽/мес.</p>
+      <p class="packages__note reveal">Для отклика на Kwork удобнее витрина <strong>без контактов</strong>: <a href="showcase/" class="packages__note-link">showcase/</a> (боты и сайты). Карточки WB — отдельно: <a href="showcase/mp/" class="packages__note-link">showcase/mp/</a>.</p>
     </div>
   </section>
 
@@ -326,89 +324,157 @@
       <div class="section__head reveal">
         <div class="section__index">02</div>
         <div class="section__head-text">
-          <div class="section__label">Selected work</div>
-          <h2 class="section__title">Кейсы</h2>
-          <p class="section__text">Учебные и рабочие проекты с репозиториями. Код и логика сдачи — открыты.</p>
+          <div class="section__label">Работы</div>
+          <h2 class="section__title">Что уже сделано</h2>
+          <p class="section__text">Нажмите на работу — внутри: какая была проблема и как решил. Код на GitHub.</p>
         </div>
       </div>
       <div class="case-list">
-        <article class="case-row reveal">
-          <span class="case-row__num">01</span>
-          <div class="case-row__body">
-            <div class="case-row__tags">VK · AI</div>
-            <h3 class="case-row__title">AI-бот ВКонтакте с заявками</h3>
-            <p class="case-row__desc">Нейроконсультация, пошаговый сбор заявки, уведомление администратору.</p>
+        <details class="case-acc reveal">
+          <summary class="case-acc__summary">
+            <span class="case-acc__num">01</span>
+            <div class="case-acc__head">
+              <div class="case-acc__tags">VK · AI</div>
+              <h3 class="case-acc__title">Бот ВКонтакте с заявками</h3>
+              <p class="case-acc__teaser">Ответы клиентам без оператора 24/7</p>
+            </div>
+            <span class="case-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="case-acc__panel">
+            <div class="case-acc__grid">
+              <div class="case-acc__block">
+                <span class="case-acc__label">Проблема</span>
+                <p>Клиенты пишут в любое время, оператор не успевает — заявки остывают в переписке.</p>
+              </div>
+              <div class="case-acc__block">
+                <span class="case-acc__label">Решение</span>
+                <p>Бот отвечает по сценарию, собирает контакт по шагам и передаёт заявку админу.</p>
+              </div>
+              <div class="case-acc__block">
+                <span class="case-acc__label">Результат</span>
+                <p>Заявка уходит администратору автоматически, без ручного копирования из чата.</p>
+              </div>
+            </div>
+            <a href="https://github.com/SpiritWalker84/FGIp04" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
           </div>
-          <a href="https://github.com/SpiritWalker84/FGIp04" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
-        </article>
-        <article class="case-row reveal">
-          <span class="case-row__num">02</span>
-          <div class="case-row__body">
-            <div class="case-row__tags">React · FastAPI</div>
-            <h3 class="case-row__title">Калькулятор + Telegram-бот</h3>
-            <p class="case-row__desc">React/TS фронт, FastAPI backend, заявки в Telegram, Docker.</p>
-          </div>
-          <a href="https://github.com/SpiritWalker84/FGIp05" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
-        </article>
-        <article class="case-row reveal">
-          <span class="case-row__num">03</span>
-          <div class="case-row__body">
-            <div class="case-row__tags">Landing · VPS</div>
-            <h3 class="case-row__title">Лендинги с form-api</h3>
-            <p class="case-row__desc">5 лендингов, nginx, формы заявок, деплой на сервер.</p>
-          </div>
-          <a href="https://github.com/SpiritWalker84" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
-        </article>
-        <article class="case-row reveal">
-          <span class="case-row__num">04</span>
-          <div class="case-row__body">
-            <div class="case-row__tags">Telethon</div>
-            <h3 class="case-row__title">Telegram-парсер заказов</h3>
-            <p class="case-row__desc">Автосбор постов из канала, фильтрация по дате, инкрементальная загрузка.</p>
-          </div>
-          <span class="case-row__link">Демо →</span>
-        </article>
-        <article class="case-row reveal">
-          <span class="case-row__num">05</span>
-          <div class="case-row__body">
-            <div class="case-row__tags">LLM</div>
-            <h3 class="case-row__title">AI-агенты и чат-боты</h3>
-            <p class="case-row__desc">Боты с LLM, сценарии диалога, интеграция мессенджеров.</p>
-          </div>
-          <a href="https://github.com/SpiritWalker84/FGIp04" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
-        </article>
-      </div>
-    </div>
-  </section>
+        </details>
 
-  <section class="section" id="marketplace">
-    <div class="container">
-      <div class="section__head reveal">
-        <div class="section__index">↗</div>
-        <div class="section__head-text">
-          <div class="section__label">Marketplace</div>
-          <h2 class="section__title">Карточки Wildberries / Ozon</h2>
-          <p class="section__text">Отдельное направление: слайды 3:4, AI-фото и инфографика для селлеров. Основной профиль — автоматизация выше; здесь — визуал воронки карточки.</p>
-        </div>
+        <details class="case-acc reveal">
+          <summary class="case-acc__summary">
+            <span class="case-acc__num">02</span>
+            <div class="case-acc__head">
+              <div class="case-acc__tags">Сайт · Telegram</div>
+              <h3 class="case-acc__title">Калькулятор + бот заявок</h3>
+              <p class="case-acc__teaser">Считал на сайте — менеджер уже видит сумму</p>
+            </div>
+            <span class="case-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="case-acc__panel">
+            <div class="case-acc__grid">
+              <div class="case-acc__block">
+                <span class="case-acc__label">Проблема</span>
+                <p>Клиент считает цену на сайте, а менеджер узнаёт об интересе только если тот сам напишет.</p>
+              </div>
+              <div class="case-acc__block">
+                <span class="case-acc__label">Решение</span>
+                <p>Калькулятор на сайте + отправка заявки в Telegram: сумма, параметры, контакт.</p>
+              </div>
+              <div class="case-acc__block">
+                <span class="case-acc__label">Результат</span>
+                <p>Менеджер сразу видит расчёт и телефон — можно перезвонить, пока клиент горячий.</p>
+              </div>
+            </div>
+            <a href="https://github.com/SpiritWalker84/FGIp05" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </details>
+
+        <details class="case-acc reveal">
+          <summary class="case-acc__summary">
+            <span class="case-acc__num">03</span>
+            <div class="case-acc__head">
+              <div class="case-acc__tags">Сайты</div>
+              <h3 class="case-acc__title">Лендинги с формой заявки</h3>
+              <p class="case-acc__teaser">Красивый сайт, где форма реально работает</p>
+            </div>
+            <span class="case-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="case-acc__panel">
+            <div class="case-acc__grid">
+              <div class="case-acc__block">
+                <span class="case-acc__label">Проблема</span>
+                <p>Нужен сайт под ключ: не макет, а форма, с которой заявки куда-то доходят.</p>
+              </div>
+              <div class="case-acc__block">
+                <span class="case-acc__label">Решение</span>
+                <p>Несколько лендингов, форма на сервере, запуск на VPS — примеры в блоке ниже.</p>
+              </div>
+              <div class="case-acc__block">
+                <span class="case-acc__label">Результат</span>
+                <p>Живые демо: интерьеры, материалы, бани — можно открыть и оставить тестовую заявку.</p>
+              </div>
+            </div>
+            <a href="#visual" class="case-row__link">Смотреть демо</a>
+          </div>
+        </details>
+
+        <details class="case-acc reveal">
+          <summary class="case-acc__summary">
+            <span class="case-acc__num">04</span>
+            <div class="case-acc__head">
+              <div class="case-acc__tags">Парсер</div>
+              <h3 class="case-acc__title">Сбор заказов из Telegram</h3>
+              <p class="case-acc__teaser">Не пропустить пост с заказом в канале</p>
+            </div>
+            <span class="case-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="case-acc__panel">
+            <div class="case-acc__grid">
+              <div class="case-acc__block">
+                <span class="case-acc__label">Проблема</span>
+                <p>Заказы сыплются в канал — вручную не уследить, часть уходит конкурентам.</p>
+              </div>
+              <div class="case-acc__block">
+                <span class="case-acc__label">Решение</span>
+                <p>Автосбор постов, фильтр по дате, только новые записи — без дублей.</p>
+              </div>
+              <div class="case-acc__block">
+                <span class="case-acc__label">Результат</span>
+                <p>Лента заказов собирается сама; вы смотрите уже отфильтрованное.</p>
+              </div>
+            </div>
+            <span class="case-row__link case-row__link--muted">Закрытый проект</span>
+          </div>
+        </details>
+
+        <details class="case-acc reveal">
+          <summary class="case-acc__summary">
+            <span class="case-acc__num">05</span>
+            <div class="case-acc__head">
+              <div class="case-acc__tags">Заявки · статусы</div>
+              <h3 class="case-acc__title">Трекер заявок</h3>
+              <p class="case-acc__teaser">Заявки не в Excel и не в чатах</p>
+            </div>
+            <span class="case-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="case-acc__panel">
+            <div class="case-acc__grid">
+              <div class="case-acc__block">
+                <span class="case-acc__label">Проблема</span>
+                <p>Заявки размазаны по таблицам и переписке — непонятно, кто что взял и на каком этапе.</p>
+              </div>
+              <div class="case-acc__block">
+                <span class="case-acc__label">Решение</span>
+                <p>Форма, диспетчер, кабинет мастера, статусы по цепочке.</p>
+              </div>
+              <div class="case-acc__block">
+                <span class="case-acc__label">Результат</span>
+                <p>Путь заявки прозрачный: новая → назначена → в работе → готово.</p>
+              </div>
+            </div>
+            <a href="https://github.com/SpiritWalker84/FGIp07" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </details>
       </div>
-      <div class="mp-teaser-grid reveal">
-        <a class="mp-teaser-card" href="marketplace/#case-chair">
-          <strong>Мебель · разбор кейса</strong>
-          <span>Кресло: ТЗ → 6 слайдов, до/после, воронка WB</span>
-        </a>
-        <a class="mp-teaser-card" href="marketplace/#case-shelf">
-          <strong>Декор · 3 слайда</strong>
-          <span>Полка: две концепции + характеристики</span>
-        </a>
-        <a class="mp-teaser-card" href="marketplace/#case-poncho">
-          <strong>Текстиль · 3 слайда</strong>
-          <span>Пончо: lifestyle и предметка</span>
-        </a>
-      </div>
-      <p class="reveal" style="margin-top:1.5rem">
-        <a href="marketplace/" class="btn btn--ghost">Вся витрина карточек →</a>
-        <a href="showcase/mp/" class="btn btn--ghost" style="margin-left:0.5rem">Kwork (без контактов) →</a>
-      </p>
     </div>
   </section>
 
@@ -417,9 +483,9 @@
       <div class="section__head reveal">
         <div class="section__index">↗</div>
         <div class="section__head-text">
-          <div class="section__label">Visual work</div>
-          <h2 class="section__title">Лендинги и диалоги ботов</h2>
-          <p class="section__text">Живые лендинги на VPS и примеры сценариев Telegram-ботов по реальным кейсам из портфолио.</p>
+          <div class="section__label">Примеры</div>
+          <h2 class="section__title">Сайты и диалоги ботов</h2>
+          <p class="section__text">Живые сайты на сервере и макеты переписок Telegram — как это выглядит у клиента.</p>
         </div>
       </div>
 
@@ -436,9 +502,9 @@
             </div>
           </div>
           <div class="showcase__caption">
-            <span class="showcase__tag">Interior · premium</span>
+            <span class="showcase__tag">Интерьеры</span>
             <strong>Студия интерьеров</strong>
-            <span>Hero, портфолио, форма заявки, scroll-анимации</span>
+            <span>Главный экран, портфолио, форма заявки</span>
           </div>
         </a>
 
@@ -453,9 +519,9 @@
             </div>
           </div>
           <div class="showcase__caption">
-            <span class="showcase__tag">B2B · materials</span>
+            <span class="showcase__tag">Материалы</span>
             <strong>Пластик Акрил</strong>
-            <span>Каталог фасадов, lead-form, FastAPI backend</span>
+            <span>Каталог фасадов, форма заявки на сервере</span>
           </div>
         </a>
 
@@ -470,7 +536,7 @@
             </div>
           </div>
           <div class="showcase__caption">
-            <span class="showcase__tag">Catalog · wood</span>
+            <span class="showcase__tag">Каталог</span>
             <strong>BanyaWood</strong>
             <span>Каталог бань, галерея, заявка на расчёт</span>
           </div>
@@ -513,9 +579,9 @@
             </div>
           </div>
           <div class="showcase__caption">
-            <span class="showcase__tag">React · FastAPI</span>
+            <span class="showcase__tag">Сайт · бот</span>
             <strong>Калькулятор → заявка</strong>
-            <span>Расчёт на сайте, уведомление менеджеру в Telegram</span>
+            <span>Расчёт на сайте, менеджер сразу видит заявку в Telegram</span>
           </div>
         </a>
 
@@ -552,9 +618,9 @@
             </div>
           </div>
           <div class="showcase__caption">
-            <span class="showcase__tag">AI · LLM</span>
-            <strong>AI-консультант + заявка</strong>
-            <span>Ответ через нейросеть, сбор контакта, ping админу</span>
+            <span class="showcase__tag">AI</span>
+            <strong>Консультант + заявка</strong>
+            <span>Отвечает нейросеть, собирает контакт, пишет админу</span>
           </div>
         </a>
 
@@ -594,15 +660,15 @@
             </div>
           </div>
           <div class="showcase__caption">
-            <span class="showcase__tag">Menu · booking</span>
+            <span class="showcase__tag">Запись</span>
             <strong>Запись на сервис</strong>
-            <span>Меню, сбор данных, подтверждение слота</span>
+            <span>Меню, сбор данных, подтверждение времени</span>
           </div>
         </div>
 
       </div>
 
-      <p class="showcase__note reveal">Лендинги — live demo на VPS · Боты — UI-макеты · <a href="showcase/" class="showcase__note-link">витрина Kwork →</a> · <a href="marketplace/" class="showcase__note-link">карточки WB →</a></p>
+      <p class="showcase__note reveal">Сайты — живые демо · Боты — макеты переписок · <a href="showcase/" class="showcase__note-link">витрина для Kwork →</a> · <a href="marketplace/" class="showcase__note-link">карточки WB (отдельная страница) →</a></p>
     </div>
   </section>
 
@@ -637,30 +703,30 @@
       <div class="section__head reveal">
         <div class="section__index">03</div>
         <div class="section__head-text">
-          <div class="section__label">Process</div>
+          <div class="section__label">Процесс</div>
           <h2 class="section__title">Как работаю</h2>
         </div>
       </div>
       <div class="process-grid reveal">
         <article class="process-step">
           <div class="process-step__num">01</div>
-          <h3 class="process-step__title">Бриф</h3>
-          <p class="process-step__text">Задача, источники данных, интеграции, сроки.</p>
+          <h3 class="process-step__title">Задача</h3>
+          <p class="process-step__text">Пишете, что нужно. Уточняю детали и сроки.</p>
         </article>
         <article class="process-step">
           <div class="process-step__num">02</div>
           <h3 class="process-step__title">Оценка</h3>
-          <p class="process-step__text">Вилка по срокам и стоимости, фиксируем MVP.</p>
+          <p class="process-step__text">Называю вилку по цене и сроку. Согласуем минимум для старта.</p>
         </article>
         <article class="process-step">
           <div class="process-step__num">03</div>
           <h3 class="process-step__title">Разработка</h3>
-          <p class="process-step__text">Демо в Telegram или на тестовом URL.</p>
+          <p class="process-step__text">Показываю демо в Telegram или по ссылке.</p>
         </article>
         <article class="process-step">
           <div class="process-step__num">04</div>
           <h3 class="process-step__title">Сдача</h3>
-          <p class="process-step__text">Деплой, инструкция, короткая поддержка.</p>
+          <p class="process-step__text">Запускаю, даю инструкцию, коротко сопровождаю.</p>
         </article>
       </div>
     </div>
@@ -670,7 +736,7 @@
     <div class="container">
       <div class="cta__panel reveal">
         <h2 class="cta__title">Есть задача — напишите</h2>
-        <p class="cta__text">Коротко опишите, что нужно автоматизировать. Отвечу с вопросами и ориентиром по срокам.</p>
+        <p class="cta__text">Коротко: бот, сайт или сбор данных. Отвечу с вопросами и ориентиром по срокам и цене.</p>
         <div class="cta__actions">
           <a href="#" class="btn btn--primary site-link" data-site-link="telegram">Telegram</a>
           <a href="#" class="btn btn--ghost site-link" data-site-link="kwork">Kwork</a>

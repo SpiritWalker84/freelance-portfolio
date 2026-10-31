@@ -105,6 +105,18 @@ if (leadForm) {
   });
 }
 
+const caseAccordions = document.querySelectorAll(".case-acc");
+if (caseAccordions.length) {
+  caseAccordions.forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (!item.open) return;
+      caseAccordions.forEach((other) => {
+        if (other !== item) other.open = false;
+      });
+    });
+  });
+}
+
 const THEME_KEY = "signal-theme";
 
 function initThemeToggle() {
