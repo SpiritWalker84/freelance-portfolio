@@ -1265,6 +1265,21 @@ a {
   line-height: 1.45;
 }
 
+.case-acc__media {
+  margin: 0 0 1.15rem;
+}
+
+.case-acc__media.showcase {
+  margin-top: 0.25rem;
+}
+
+.case-acc__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 /* ── Visual showcase ─────────────────────────────────────────────── */
 
 .showcase {
@@ -1817,6 +1832,11 @@ a.showcase__card:hover .browser__screen img {
   .case-acc__grid {
     grid-template-columns: 1fr;
     gap: 0.85rem;
+  }
+
+  .case-acc__media.showcase,
+  .case-acc__media.showcase--bots {
+    grid-template-columns: 1fr;
   }
 
   .service-row__tag,
