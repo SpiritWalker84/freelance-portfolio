@@ -126,10 +126,10 @@ function initThemeToggle() {
   function applyTheme(neon) {
     if (neon) {
       document.documentElement.setAttribute("data-theme", "neon");
-      if (themeToggleLabel) themeToggleLabel.textContent = "Неон: вкл";
+      if (themeToggleLabel) themeToggleLabel.textContent = "Тёплый dark";
     } else {
       document.documentElement.removeAttribute("data-theme");
-      if (themeToggleLabel) themeToggleLabel.textContent = "v1";
+      if (themeToggleLabel) themeToggleLabel.textContent = "База";
     }
   }
 
