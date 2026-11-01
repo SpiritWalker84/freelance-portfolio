@@ -256,6 +256,7 @@ a {
 .hero__benefits {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2.25rem;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   background: rgba(28, 24, 21, 0.46);
@@ -304,8 +305,14 @@ a {
   gap: 1rem;
 }
 
-.hero__benefits-wrap {
-  padding-top: 2rem;
+.hero__ping {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #0e1621;
+}
+
+.hero__ping .tg-mock {
+  height: auto;
 }
 
 /* Deploy console — hero aside */
@@ -555,6 +562,29 @@ a {
   color: var(--accent);
   position: relative;
   display: inline-block;
+}
+
+.hero__shimmer {
+  color: var(--accent);
+  background: linear-gradient(
+    110deg,
+    var(--accent) 0%,
+    var(--accent) 38%,
+    var(--cream) 48%,
+    var(--accent) 58%,
+    var(--accent) 100%
+  );
+  background-size: 240% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hero-shimmer 8s ease-in-out infinite;
+}
+
+@keyframes hero-shimmer {
+  0%, 68% { background-position: 100% 0; }
+  95%, 100% { background-position: 0 0; }
 }
 
 .hero__lead {
@@ -1602,8 +1632,13 @@ a.showcase__card:hover .browser__screen img {
 }
 
 .stack-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.85rem;
+  min-height: 96px;
   background: var(--ink);
-  padding: 1.1rem 1rem;
+  padding: 1rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.04em;
@@ -1611,9 +1646,41 @@ a.showcase__card:hover .browser__screen img {
   transition: color 0.2s, background 0.2s;
 }
 
+.stack-mark {
+  display: block;
+  width: 28px;
+  height: 28px;
+  color: var(--muted);
+  animation: stack-wake 8.4s ease-in-out infinite;
+  animation-delay: calc(var(--d) * 0.55s);
+}
+
+.stack-mark svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
+@keyframes stack-wake {
+  0%, 58%, 100% {
+    color: var(--muted);
+    transform: translateY(0);
+  }
+  10%, 24% {
+    color: var(--accent);
+    transform: translateY(-4px);
+  }
+}
+
 .stack-cell:hover {
   background: var(--accent-dim);
   color: var(--text);
+}
+
+.stack-cell:hover .stack-mark {
+  animation-play-state: paused;
+  color: var(--text);
+  transform: none;
 }
 
 /* ── Process ────────────────────────────────────────────────────── */
@@ -1951,6 +2018,12 @@ a.showcase__card:hover .browser__screen img {
 
 @media (prefers-reduced-motion: reduce) {
   .logo__mark::before { animation: none; }
+  .stack-mark,
+  .hero__shimmer { animation: none; }
+  .hero__shimmer {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
   .console-cursor { animation: none; opacity: 1; }
   .glitch,
   .glitch::before,
