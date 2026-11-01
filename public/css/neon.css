@@ -59,11 +59,6 @@ html[data-theme="neon"] .btn--ghost:hover {
   text-shadow: none;
 }
 
-html[data-theme="neon"] .hero__orb {
-  background: radial-gradient(circle, rgba(196, 120, 74, 0.2), transparent 70%);
-  filter: blur(64px);
-}
-
 html[data-theme="neon"] .hero__grid-bg {
   background-image:
     linear-gradient(rgba(243, 238, 230, 0.04) 1px, transparent 1px),
@@ -154,19 +149,6 @@ html[data-theme="neon"] .case-acc[open] .case-acc__chev {
   box-shadow: none;
 }
 
-html[data-theme="neon"] .marquee-wrap {
-  box-shadow: inset 0 1px 0 rgba(243, 238, 230, 0.06), inset 0 -1px 0 rgba(243, 238, 230, 0.06);
-}
-
-html[data-theme="neon"] .marquee__item {
-  text-shadow: none;
-}
-
-html[data-theme="neon"] .marquee__item::after {
-  color: var(--accent);
-  text-shadow: none;
-}
-
 html[data-theme="neon"] .cta__panel {
   background: var(--ink-2);
   box-shadow: none;
@@ -202,55 +184,4 @@ html[data-theme="neon"] .case-row__link:hover {
 
 html[data-theme="neon"] body::after {
   display: none;
-}
-
-html[data-theme="neon"] .hero__rain,
-html[data-theme="neon"] .hero__scanlines {
-  display: none;
-}
-
-.theme-toggle {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  background: rgba(20, 17, 15, 0.92);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius);
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-  transition: border-color 0.2s, color 0.2s;
-}
-
-.theme-toggle:hover {
-  color: var(--text);
-  border-color: var(--accent);
-}
-
-html[data-theme="neon"] .theme-toggle {
-  color: var(--muted);
-  border-color: var(--border-strong);
-  box-shadow: none;
-}
-
-.theme-toggle__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--muted);
-  transition: background 0.2s;
-}
-
-html[data-theme="neon"] .theme-toggle__dot {
-  background: var(--accent);
-  box-shadow: none;
 }

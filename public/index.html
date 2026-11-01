@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ринат — боты, сайты и заявки для бизнеса</title>
-  <meta name="description" content="Telegram-боты и сайты: клиент оставляет заявку — менеджер сразу получает её в Telegram или таблицу. Python, FastAPI, деплой на VPS.">
+  <title>Ринат — боты и сайты, которые не теряют заявки</title>
+  <meta name="description" content="Telegram-боты и сайты для бизнеса: клиент оставляет заявку, менеджер сразу получает её в Telegram или таблице. Запуск и инструкция — на мне.">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/manrope-400-800-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/manrope-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/neon.css">
 </head>
@@ -31,29 +31,24 @@
       </nav>
       <div class="header__actions">
         <a href="https://github.com/SpiritWalker84" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
-        <a href="#" class="btn btn--primary site-link" data-site-link="telegram">Telegram</a>
+        <a href="#" class="btn btn--primary site-link" data-site-link="telegram">Написать в Telegram</a>
       </div>
-      <button class="menu-toggle" id="menuToggle" aria-label="Меню">Menu</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Меню">Меню</button>
     </div>
   </header>
 
   <section class="hero">
-    <canvas class="hero__rain" id="signalRain" aria-hidden="true"></canvas>
-    <div class="hero__scanlines" aria-hidden="true"></div>
     <div class="hero__grid-bg" aria-hidden="true"></div>
-    <div class="hero__orb" aria-hidden="true"></div>
-    <div class="hero__watermark" aria-hidden="true">BOT</div>
 
     <div class="container hero__layout">
-      <div class="hero__main reveal">
+      <div class="hero__main">
         <div class="prod-label">Боты · сайты · заявки</div>
         <h1 class="hero__title">Хватит терять заявки&nbsp;— бот принесёт их в&nbsp;Telegram</h1>
         <p class="hero__lead">
-          Собираю Telegram-ботов и сайты под ключ: клиент оставляет контакт — строка в таблице
-          и сообщение менеджеру. Без штатного программиста, с запуском и инструкцией.
+          Разрабатываю Telegram-ботов и сайты для бизнеса: клиент оставляет контакт — вы сразу видите заявку в Telegram или таблице. Запущу и объясню, как всё работает.
         </p>
         <div class="hero__actions">
-          <a href="#contact" class="btn btn--primary">Написать задачу</a>
+          <a href="#contact" class="btn btn--primary">Обсудить задачу</a>
           <a href="#" class="btn btn--ghost site-link" data-site-link="kwork">Смотреть на Kwork</a>
         </div>
         <div class="hero__meta">
@@ -67,21 +62,21 @@
           </div>
           <div class="meta-item">
             <div class="meta-item__val">Под ключ</div>
-            <div class="meta-item__lbl">Деплой и инструкция</div>
+            <div class="meta-item__lbl">Запуск и инструкция</div>
           </div>
         </div>
       </div>
 
-      <div class="hero__aside reveal">
+      <div class="hero__aside">
         <div class="console-panel">
           <div class="console-panel__bar">
             <span class="console-panel__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="console-panel__title">Напишите задачу</span>
+            <span class="console-panel__title">Опишите задачу</span>
           </div>
           <div class="console-panel__log" aria-hidden="true">
             <span class="console-line"><span class="console-ok">✓</span> форма <span class="console-dim">готова</span></span>
             <span class="console-line"><span class="console-ok">✓</span> ответ <span class="console-dim">обычно в тот же день</span></span>
-            <span class="console-line console-line--dim"> коротко опишите, что нужно</span>
+            <span class="console-line console-line--dim"> пары слов о задаче достаточно</span>
           </div>
           <form class="console-form" id="leadForm" novalidate>
             <input type="text" name="website" class="console-form__hp" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -101,7 +96,7 @@
               <label class="console-form__label" for="leadTask">
                 <span class="console-prompt">Что нужно сделать</span>
               </label>
-              <textarea class="console-form__input console-form__input--area" id="leadTask" name="task" rows="2" placeholder="Например: бот для заявок, сайт с формой, парсер" required></textarea>
+              <textarea class="console-form__input console-form__input--area" id="leadTask" name="task" rows="2" placeholder="Например: собирать заявки с сайта в Telegram" required></textarea>
             </div>
             <button class="console-form__submit btn btn--primary" type="submit">→ Отправить</button>
           </form>
@@ -121,28 +116,28 @@
             <span class="dock__num">01</span>
             <div>
               <strong>Бот для заявок</strong>
-              <span>Клиент пишет боту — менеджер получает сообщение</span>
+              <span>Клиент оставляет заявку — менеджер получает её сразу</span>
             </div>
           </div>
           <div class="dock__row">
             <span class="dock__num">02</span>
             <div>
               <strong>Бот-консультант</strong>
-              <span>Отвечает на частые вопросы и собирает контакт</span>
+              <span>Отвечает на частые вопросы и просит контакт</span>
             </div>
           </div>
           <div class="dock__row">
             <span class="dock__num">03</span>
             <div>
               <strong>Сбор данных</strong>
-              <span>Парсер каналов и мониторинг по расписанию</span>
+              <span>Собирает нужные сообщения по расписанию</span>
             </div>
           </div>
           <div class="dock__row">
             <span class="dock__num">04</span>
             <div>
               <strong>Сайт с заявкой</strong>
-              <span>Лендинг, форма, уведомление менеджеру</span>
+              <span>Сайт с формой и уведомлением менеджеру</span>
             </div>
           </div>
         </div>
@@ -151,67 +146,38 @@
     </div>
   </section>
 
-  <div class="marquee-wrap" aria-hidden="true">
-    <div class="marquee">
-      <div class="marquee__track">
-        <span class="marquee__item">Python</span>
-        <span class="marquee__item">FastAPI</span>
-        <span class="marquee__item">Telethon</span>
-        <span class="marquee__item">Telegram Bot API</span>
-        <span class="marquee__item">VK API</span>
-        <span class="marquee__item">React</span>
-        <span class="marquee__item">Docker</span>
-        <span class="marquee__item">PostgreSQL</span>
-        <span class="marquee__item">OpenAI / LLM</span>
-        <span class="marquee__item">nginx</span>
-      </div>
-      <div class="marquee__track" aria-hidden="true">
-        <span class="marquee__item">Python</span>
-        <span class="marquee__item">FastAPI</span>
-        <span class="marquee__item">Telethon</span>
-        <span class="marquee__item">Telegram Bot API</span>
-        <span class="marquee__item">VK API</span>
-        <span class="marquee__item">React</span>
-        <span class="marquee__item">Docker</span>
-        <span class="marquee__item">PostgreSQL</span>
-        <span class="marquee__item">OpenAI / LLM</span>
-        <span class="marquee__item">nginx</span>
-      </div>
-    </div>
-  </div>
-
   <section class="section section--ink" id="services">
     <div class="container">
       <div class="section__head reveal">
         <div class="section__index">01</div>
         <div class="section__head-text">
           <div class="section__label">Услуги</div>
-          <h2 class="section__title">Что могу сделать</h2>
-          <p class="section__text">Не макет «на посмотреть», а рабочий бот или сайт: запускаю, отдаю инструкцию, вы пользуетесь.</p>
+          <h2 class="section__title">Что можно автоматизировать</h2>
+          <p class="section__text">Настрою сбор заявок, ответы на частые вопросы или подборку заказов. Запущу и покажу, как пользоваться.</p>
         </div>
       </div>
       <div class="service-rows">
         <article class="service-row reveal">
           <span class="service-row__num">A</span>
           <div>
-            <h3 class="service-row__title">Боты и заявки</h3>
-            <p class="service-row__desc">Меню, сбор имени и телефона, строка в таблице, сообщение менеджеру в Telegram.</p>
+            <h3 class="service-row__title">Заявки в Telegram и таблицу</h3>
+            <p class="service-row__desc">Бот спрашивает имя, телефон и задачу. Отправляет данные менеджеру и сохраняет их в таблице.</p>
           </div>
           <span class="service-row__tag">Telegram / VK</span>
         </article>
         <article class="service-row reveal">
           <span class="service-row__num">B</span>
           <div>
-            <h3 class="service-row__title">Умный консультант</h3>
-            <p class="service-row__desc">Бот отвечает по вашим текстам. Сложный вопрос — переводит человеку.</p>
+            <h3 class="service-row__title">Ответы на частые вопросы</h3>
+            <p class="service-row__desc">Отвечает на частые вопросы по вашим материалам. Сложные вопросы передаёт сотруднику.</p>
           </div>
           <span class="service-row__tag">AI</span>
         </article>
         <article class="service-row reveal">
           <span class="service-row__num">C</span>
           <div>
-            <h3 class="service-row__title">Автосбор данных</h3>
-            <p class="service-row__desc">Сбор постов из каналов, фильтры, отчёты по расписанию.</p>
+            <h3 class="service-row__title">Сбор нужных сообщений</h3>
+            <p class="service-row__desc">Программа собирает посты из каналов, фильтрует их и убирает повторы.</p>
           </div>
           <span class="service-row__tag">Python</span>
         </article>
@@ -225,8 +191,8 @@
         <div class="section__index">↗</div>
         <div class="section__head-text">
           <div class="section__label">Kwork</div>
-          <h2 class="section__title">Готовые форматы заказа</h2>
-          <p class="section__text">Выберите понятный пакет. Точная цена и состав — на Kwork после короткого уточнения задачи.</p>
+          <h2 class="section__title">Выберите подходящий формат</h2>
+          <p class="section__text">Выберите основу. После пары вопросов уточню состав, срок и точную цену.</p>
         </div>
       </div>
 
@@ -249,30 +215,30 @@
         </article>
         <article class="package-card package-card--featured">
           <div class="package-card__head">
-            <span class="package-card__tier">Популярный</span>
+            <span class="package-card__tier">Заявки</span>
             <span class="package-card__term">3–5 дней</span>
           </div>
-          <h3 class="package-card__title">Бот: заявки менеджеру</h3>
+          <h3 class="package-card__title">Бот для заявок</h3>
           <p class="package-card__price">от 8 000 ₽</p>
           <ul class="package-card__list">
-            <li>Бот собирает имя, телефон, задачу</li>
-            <li>Строка в Google Таблице + сообщение вам в Telegram</li>
+            <li>Собирает имя, телефон и задачу</li>
+            <li>Заявка в Google Таблице и сообщение вам в Telegram</li>
             <li>Меню и ответы на частые вопросы</li>
-            <li>Запуск на сервере</li>
+            <li>Настройка и запуск бота</li>
           </ul>
           <a href="#" class="package-card__link" data-kwork-gig="zayavki">Заказать на Kwork →</a>
         </article>
         <article class="package-card">
           <div class="package-card__head">
-            <span class="package-card__tier">Pro</span>
+            <span class="package-card__tier">Консультации</span>
             <span class="package-card__term">5–8 дней</span>
           </div>
           <h3 class="package-card__title">Бот-консультант</h3>
           <p class="package-card__price">от 8 000 ₽</p>
           <ul class="package-card__list">
             <li>Отвечает по вашим текстам и прайсу</li>
-            <li>Сложное — передаёт человеку</li>
-            <li>Собирает заявку и пишет вам</li>
+            <li>Передаёт сложные вопросы сотруднику</li>
+            <li>Передаёт вам контакт и вопрос клиента</li>
             <li>Telegram или ВКонтакте</li>
           </ul>
           <a href="#" class="package-card__link" data-kwork-gig="ai">Заказать на Kwork →</a>
@@ -290,7 +256,7 @@
           <p class="package-card__price">от 5 000 ₽</p>
           <ul class="package-card__list">
             <li>Главный экран и 3–5 блоков</li>
-            <li>Удобно с телефона, форма заявки</li>
+            <li>Удобно с телефона, форма для заявки</li>
             <li>Лёгкие анимации</li>
             <li>Исходники и инструкция</li>
           </ul>
@@ -301,20 +267,20 @@
             <span class="package-card__tier">Сайт + заявки</span>
             <span class="package-card__term">4–6 дней</span>
           </div>
-          <h3 class="package-card__title">Лендинг: заявки на сервере</h3>
+          <h3 class="package-card__title">Сайт с отправкой заявок</h3>
           <p class="package-card__price">от 8 000 ₽</p>
           <ul class="package-card__list">
-            <li>Вёрстка, каталог или галерея</li>
-            <li>Форма работает: заявка уходит менеджеру</li>
+            <li>Страницы, каталог или галерея</li>
+            <li>Форма отправляет заявку менеджеру</li>
             <li>Запуск на вашем или моём сервере</li>
-            <li>Примеры — в разделе «Работы» ниже</li>
+            <li>Примеры — в разделе «Работы»</li>
           </ul>
           <a href="#" class="package-card__link" data-kwork-gig="zayavki">Заказать на Kwork →</a>
         </article>
       </div>
 
-      <p class="packages__note reveal">После запуска могу вести бот или сайт: мелкие правки и проверка работы — от 3 000 ₽/мес.</p>
-      <p class="packages__note reveal">Для отклика на Kwork удобнее витрина <strong>без контактов</strong>: <a href="showcase/" class="packages__note-link">showcase/</a> (боты и сайты). Карточки WB — отдельно: <a href="showcase/mp/" class="packages__note-link">showcase/mp/</a>.</p>
+      <p class="packages__note reveal">После запуска могу поддерживать бот или сайт: проверка работы и небольшие правки — от 3 000 ₽/мес.</p>
+      <p class="packages__note reveal">Для отклика на Kwork есть отдельная витрина <strong>без контактов</strong>: <a href="showcase/" class="packages__note-link">showcase/</a> (боты и сайты). Карточки WB — отдельно: <a href="showcase/mp/" class="packages__note-link">showcase/mp/</a>.</p>
     </div>
   </section>
 
@@ -324,8 +290,8 @@
         <div class="section__index">02</div>
         <div class="section__head-text">
           <div class="section__label">Работы</div>
-          <h2 class="section__title">Что уже сделано</h2>
-          <p class="section__text">Откройте проект: проблема, решение и скрины внутри. Код — на GitHub.</p>
+          <h2 class="section__title">Примеры работ</h2>
+          <p class="section__text">Откройте проект: что было нужно, что сделал и какой получился результат.</p>
         </div>
       </div>
       <div class="case-list">
@@ -336,7 +302,7 @@
             <div class="case-acc__head">
               <div class="case-acc__tags">VK · AI</div>
               <h3 class="case-acc__title">Бот-консультант с заявками</h3>
-              <p class="case-acc__teaser">Ответы клиентам без оператора 24/7</p>
+              <p class="case-acc__teaser">Клиенты получают ответ даже без оператора</p>
             </div>
             <span class="case-acc__chev" aria-hidden="true"></span>
           </summary>
@@ -344,15 +310,15 @@
             <div class="case-acc__grid">
               <div class="case-acc__block">
                 <span class="case-acc__label">Проблема</span>
-                <p>Клиенты пишут в любое время, оператор не успевает — заявки остывают в переписке.</p>
+                <p>Клиенты пишут в разное время, и часть обращений остаётся без ответа.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Решение</span>
-                <p>Бот отвечает по сценарию, собирает контакт по шагам и передаёт заявку админу.</p>
+                <p>Бот отвечает на частые вопросы, собирает контакт и передаёт заявку администратору.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Результат</span>
-                <p>Заявка уходит администратору автоматически, без ручного копирования из чата.</p>
+                <p>Администратор получает готовую заявку — ничего не нужно переносить из переписки.</p>
               </div>
             </div>
             <div class="case-acc__media showcase">
@@ -363,7 +329,7 @@
                     <span class="browser__url">demo · AI Assistant</span>
                   </div>
                   <div class="browser__screen browser__screen--slide">
-                    <img src="images/showcase/bots/03-bot-ai.jpg" alt="AI-консультант: диалог и передача заявки" loading="lazy" width="1280" height="720">
+                    <img src="images/showcase/bots/03-bot-ai.webp" alt="AI-консультант: диалог и передача заявки" loading="lazy" width="1280" height="720">
                   </div>
                 </div>
                 <div class="showcase__caption">
@@ -379,13 +345,13 @@
                     <span class="browser__url">demo · уведомление админу</span>
                   </div>
                   <div class="browser__screen browser__screen--slide">
-                    <img src="images/showcase/bots/06-admin-ping.jpg" alt="Заявка в Telegram и строка в таблице" loading="lazy" width="1280" height="720">
+                    <img src="images/showcase/bots/06-admin-ping.webp" alt="Заявка в Telegram и строка в таблице" loading="lazy" width="1280" height="720">
                   </div>
                 </div>
                 <div class="showcase__caption">
-                  <span class="showcase__tag">Пинг</span>
-                  <strong>Админ видит заявку сразу</strong>
-                  <span>Карточка лида + запись в таблице</span>
+                  <span class="showcase__tag">Уведомление</span>
+                  <strong>Менеджер получает заявку</strong>
+                  <span>Контакт и задача клиента, запись в таблице</span>
                 </div>
               </div>
               <a href="https://github.com/SpiritWalker84/FGIp04" class="showcase__card" target="_blank" rel="noopener">
@@ -400,7 +366,7 @@
                         <div class="tg-mock__avatar tg-mock__avatar--ai">AI</div>
                         <div>
                           <div class="tg-mock__name">AI Assistant</div>
-                          <div class="tg-mock__meta">bot</div>
+                          <div class="tg-mock__meta">бот</div>
                         </div>
                       </div>
                       <div class="tg-mock__body">
@@ -439,7 +405,7 @@
             <div class="case-acc__head">
               <div class="case-acc__tags">Сайт · Telegram</div>
               <h3 class="case-acc__title">Калькулятор + бот заявок</h3>
-              <p class="case-acc__teaser">Считал на сайте — менеджер уже видит сумму</p>
+              <p class="case-acc__teaser">Клиент посчитал — менеджер сразу видит сумму</p>
             </div>
             <span class="case-acc__chev" aria-hidden="true"></span>
           </summary>
@@ -447,15 +413,15 @@
             <div class="case-acc__grid">
               <div class="case-acc__block">
                 <span class="case-acc__label">Проблема</span>
-                <p>Клиент считает цену на сайте, а менеджер узнаёт об интересе только если тот сам напишет.</p>
+                <p>Клиент считает стоимость, но менеджер не узнаёт об этом, пока клиент сам не напишет.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Решение</span>
-                <p>Калькулятор на сайте + отправка заявки в Telegram: сумма, параметры, контакт.</p>
+                <p>Калькулятор передаёт в Telegram сумму, параметры и контакт клиента.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Результат</span>
-                <p>Менеджер сразу видит расчёт и телефон — можно перезвонить, пока клиент горячий.</p>
+                <p>Менеджер видит расчёт и телефон сразу — можно быстро связаться с клиентом.</p>
               </div>
             </div>
             <div class="case-acc__media showcase">
@@ -466,7 +432,7 @@
                     <span class="browser__url">github.com/SpiritWalker84/FGIp05</span>
                   </div>
                   <div class="browser__screen">
-                    <img src="images/showcase/calculator.png" alt="Калькулятор сметы каркасного дома" loading="lazy" width="960" height="600">
+                    <img src="images/showcase/calculator.webp" alt="Калькулятор сметы каркасного дома" loading="lazy" width="960" height="600">
                   </div>
                 </div>
                 <div class="showcase__caption">
@@ -482,7 +448,7 @@
                     <span class="browser__url">demo · LeadNotify</span>
                   </div>
                   <div class="browser__screen browser__screen--slide">
-                    <img src="images/showcase/bots/02-bot-leads.jpg" alt="Заявка с сайта в Telegram и таблицу" loading="lazy" width="1280" height="720">
+                    <img src="images/showcase/bots/02-bot-leads.webp" alt="Заявка с сайта в Telegram и таблицу" loading="lazy" width="1280" height="720">
                   </div>
                 </div>
                 <div class="showcase__caption">
@@ -498,13 +464,13 @@
                     <span class="browser__url">demo · таблица заявок</span>
                   </div>
                   <div class="browser__screen browser__screen--slide">
-                    <img src="images/showcase/bots/07-sheet-leads.jpg" alt="Таблица заявок с новыми строками" loading="lazy" width="1280" height="720">
+                    <img src="images/showcase/bots/07-sheet-leads.webp" alt="Таблица заявок с новыми строками" loading="lazy" width="1280" height="720">
                   </div>
                 </div>
                 <div class="showcase__caption">
                   <span class="showcase__tag">Таблица</span>
                   <strong>Все заявки в одном месте</strong>
-                  <span>Строка не теряется в чатах</span>
+                  <span>Контакты и расчёты сохранены в таблице</span>
                 </div>
               </div>
             </div>
@@ -520,7 +486,7 @@
             <div class="case-acc__head">
               <div class="case-acc__tags">Сайты</div>
               <h3 class="case-acc__title">Лендинги с формой заявки</h3>
-              <p class="case-acc__teaser">Красивый сайт, где форма реально работает</p>
+              <p class="case-acc__teaser">Клиент оставляет заявку прямо на сайте</p>
             </div>
             <span class="case-acc__chev" aria-hidden="true"></span>
           </summary>
@@ -528,15 +494,15 @@
             <div class="case-acc__grid">
               <div class="case-acc__block">
                 <span class="case-acc__label">Проблема</span>
-                <p>Нужен сайт под ключ: не макет, а форма, с которой заявки куда-то доходят.</p>
+                <p>Нужен сайт, где клиенту понятно, что делать, а заявка действительно доходит.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Решение</span>
-                <p>Несколько лендингов, форма на сервере, запуск на VPS.</p>
+                <p>Собрал лендинги, подключил формы и запустил их.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Результат</span>
-                <p>Живые демо ниже — можно открыть и оставить тестовую заявку.</p>
+                <p>Клиент отправляет запрос с сайта, менеджер получает данные для ответа.</p>
               </div>
             </div>
             <div class="case-acc__media showcase">
@@ -547,7 +513,7 @@
                     <span class="browser__url">5.35.94.25/landing2</span>
                   </div>
                   <div class="browser__screen">
-                    <img src="images/showcase/interior.jpg" alt="Лендинг студии интерьеров FORM" loading="lazy" width="800" height="500">
+                    <img src="images/showcase/interior.webp" alt="Лендинг студии интерьеров FORM" loading="lazy" width="800" height="500">
                   </div>
                 </div>
                 <div class="showcase__caption">
@@ -563,7 +529,7 @@
                     <span class="browser__url">/landing1</span>
                   </div>
                   <div class="browser__screen">
-                    <img src="images/showcase/acril.jpg" alt="Лендинг Senosan / Пластик Акрил" loading="lazy" width="600" height="400">
+                    <img src="images/showcase/acril.webp" alt="Лендинг Senosan / Пластик Акрил" loading="lazy" width="600" height="400">
                   </div>
                 </div>
                 <div class="showcase__caption">
@@ -579,7 +545,7 @@
                     <span class="browser__url">/landing3</span>
                   </div>
                   <div class="browser__screen">
-                    <img src="images/showcase/banya.jpg" alt="Лендинг BanyaWood" loading="lazy" width="600" height="400">
+                    <img src="images/showcase/banya.webp" alt="Лендинг BanyaWood" loading="lazy" width="600" height="400">
                   </div>
                 </div>
                 <div class="showcase__caption">
@@ -595,7 +561,7 @@
                     <span class="browser__url">demo · KarkasDom</span>
                   </div>
                   <div class="browser__screen">
-                    <img src="images/showcase/houses.jpg" alt="Лендинг каркасных домов KarkasDom" loading="lazy" width="800" height="500">
+                    <img src="images/showcase/houses.webp" alt="Лендинг каркасных домов KarkasDom" loading="lazy" width="800" height="500">
                   </div>
                 </div>
                 <div class="showcase__caption">
@@ -611,13 +577,13 @@
                     <span class="browser__url">demo · ПравоЩит</span>
                   </div>
                   <div class="browser__screen">
-                    <img src="images/showcase/legal.jpg" alt="Лендинг юридической компании ПравоЩит" loading="lazy" width="800" height="500">
+                    <img src="images/showcase/legal.webp" alt="Лендинг юридической компании ПравоЩит" loading="lazy" width="800" height="500">
                   </div>
                 </div>
                 <div class="showcase__caption">
                   <span class="showcase__tag">Юристы</span>
                   <strong>ПравоЩит</strong>
-                  <span>Герой, услуги, запись на консультацию</span>
+                  <span>Первый экран, услуги и запись на консультацию</span>
                 </div>
               </div>
             </div>
@@ -633,7 +599,7 @@
             <div class="case-acc__head">
               <div class="case-acc__tags">Бот · меню</div>
               <h3 class="case-acc__title">Запись на сервис</h3>
-              <p class="case-acc__teaser">Меню, слот, подтверждение без звонка</p>
+              <p class="case-acc__teaser">Клиент записывается без звонка</p>
             </div>
             <span class="case-acc__chev" aria-hidden="true"></span>
           </summary>
@@ -641,15 +607,15 @@
             <div class="case-acc__grid">
               <div class="case-acc__block">
                 <span class="case-acc__label">Проблема</span>
-                <p>Клиент звонит или пишет «когда можно» — менеджер вручную ищет свободное время.</p>
+                <p>Менеджер тратит время на переписку и вручную ищет свободное окно.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Решение</span>
-                <p>Бот с кнопками: услуга → данные → предложенный слот → подтверждение.</p>
+                <p>Бот задаёт несколько вопросов, предлагает свободное время и подтверждает запись.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Результат</span>
-                <p>Запись собирается в диалоге; менеджер получает готовый слот.</p>
+                <p>Клиент записывается в чате, менеджер получает готовую запись.</p>
               </div>
             </div>
             <div class="case-acc__media showcase">
@@ -660,13 +626,13 @@
                     <span class="browser__url">demo · MotoService</span>
                   </div>
                   <div class="browser__screen browser__screen--slide">
-                    <img src="images/showcase/bots/01-bot-menu.jpg" alt="Бот записи на сервис: меню и слот" loading="lazy" width="1280" height="720">
+                    <img src="images/showcase/bots/01-bot-menu.webp" alt="Бот записи на сервис: меню и выбор времени" loading="lazy" width="1280" height="720">
                   </div>
                 </div>
                 <div class="showcase__caption">
                   <span class="showcase__tag">Меню</span>
                   <strong>Схема записи</strong>
-                  <span>Кнопки → слот → подтверждение</span>
+                  <span>Услуга → время → подтверждение</span>
                 </div>
               </div>
               <div class="showcase__card showcase__card--ui">
@@ -681,7 +647,7 @@
                         <div class="tg-mock__avatar tg-mock__avatar--svc">MS</div>
                         <div>
                           <div class="tg-mock__name">MotoService</div>
-                          <div class="tg-mock__meta">bot</div>
+                          <div class="tg-mock__meta">бот</div>
                         </div>
                       </div>
                       <div class="tg-mock__body">
@@ -720,7 +686,7 @@
             <div class="case-acc__head">
               <div class="case-acc__tags">Парсер</div>
               <h3 class="case-acc__title">Сбор заказов из Telegram</h3>
-              <p class="case-acc__teaser">Не пропустить пост с заказом в канале</p>
+              <p class="case-acc__teaser">Нужные заказы сами попадают в подборку</p>
             </div>
             <span class="case-acc__chev" aria-hidden="true"></span>
           </summary>
@@ -728,15 +694,15 @@
             <div class="case-acc__grid">
               <div class="case-acc__block">
                 <span class="case-acc__label">Проблема</span>
-                <p>Заказы сыплются в канал — вручную не уследить, часть уходит конкурентам.</p>
+                <p>Заказы появляются в канале весь день — важные сообщения легко пропустить.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Решение</span>
-                <p>Автосбор постов, фильтр по дате, только новые записи — без дублей.</p>
+                <p>Программа собирает новые сообщения, фильтрует их и убирает повторы.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Результат</span>
-                <p>Лента заказов собирается сама; вы смотрите уже отфильтрованное.</p>
+                <p>Вы открываете готовую подборку, а не пролистываете весь канал.</p>
               </div>
             </div>
             <div class="case-acc__media showcase">
@@ -747,7 +713,7 @@
                     <span class="browser__url">demo · парсер канала</span>
                   </div>
                   <div class="browser__screen browser__screen--slide">
-                    <img src="images/showcase/bots/04-parser-feed.jpg" alt="Парсер заказов из Telegram-канала" loading="lazy" width="1280" height="720">
+                    <img src="images/showcase/bots/04-parser-feed.webp" alt="Парсер заказов из Telegram-канала" loading="lazy" width="1280" height="720">
                   </div>
                 </div>
                 <div class="showcase__caption">
@@ -768,7 +734,7 @@
                         <div class="tg-mock__avatar">CH</div>
                         <div>
                           <div class="tg-mock__name">Заказы · канал</div>
-                          <div class="tg-mock__meta">channel</div>
+                          <div class="tg-mock__meta">канал</div>
                         </div>
                       </div>
                       <div class="tg-mock__body">
@@ -789,12 +755,12 @@
                 <div class="showcase__caption">
                   <span class="showcase__tag">Лента</span>
                   <strong>Посты в канале</strong>
-                  <span>Парсер забирает и чистит дубли</span>
+                  <span>Собирает сообщения без повторов</span>
                 </div>
               </div>
             </div>
             <div class="case-acc__actions">
-              <span class="case-row__link case-row__link--muted">Закрытый проект</span>
+              <span class="case-row__link case-row__link--muted">Код не опубликован</span>
             </div>
           </div>
         </details>
@@ -805,7 +771,7 @@
             <div class="case-acc__head">
               <div class="case-acc__tags">Заявки · статусы</div>
               <h3 class="case-acc__title">Трекер заявок</h3>
-              <p class="case-acc__teaser">Заявки не в Excel и не в чатах</p>
+              <p class="case-acc__teaser">Все заявки видны на одном экране</p>
             </div>
             <span class="case-acc__chev" aria-hidden="true"></span>
           </summary>
@@ -813,15 +779,15 @@
             <div class="case-acc__grid">
               <div class="case-acc__block">
                 <span class="case-acc__label">Проблема</span>
-                <p>Заявки размазаны по таблицам и переписке — непонятно, кто что взял и на каком этапе.</p>
+                <p>Заявки живут в разных чатах и таблицах — непонятно, кто ими занимается и что дальше.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Решение</span>
-                <p>Форма, диспетчер, кабинет мастера, статусы по цепочке.</p>
+                <p>Одна форма, список заявок и понятные статусы для команды.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Результат</span>
-                <p>Путь заявки прозрачный: новая → назначена → в работе → готово.</p>
+                <p>В любой момент видно: новая заявка, кто её взял и что уже сделано.</p>
               </div>
             </div>
             <div class="case-acc__media showcase">
@@ -832,11 +798,11 @@
                     <span class="browser__url">demo · трекер статусов</span>
                   </div>
                   <div class="browser__screen browser__screen--slide">
-                    <img src="images/showcase/bots/05-tracker-board.jpg" alt="Канбан трекера заявок по статусам" loading="lazy" width="1280" height="720">
+                    <img src="images/showcase/bots/05-tracker-board.webp" alt="Канбан трекера заявок по статусам" loading="lazy" width="1280" height="720">
                   </div>
                 </div>
                 <div class="showcase__caption">
-                  <span class="showcase__tag">Канбан</span>
+                  <span class="showcase__tag">Статусы</span>
                   <strong>Доска статусов</strong>
                   <span>Новые → назначено → в работе → готово</span>
                 </div>
@@ -893,7 +859,7 @@
       <div class="section__head reveal">
         <div class="section__index">—</div>
         <div class="section__head-text">
-          <div class="section__label">Stack</div>
+          <div class="section__label">Разработка</div>
           <h2 class="section__title">Технологии</h2>
         </div>
       </div>
@@ -920,29 +886,29 @@
         <div class="section__index">03</div>
         <div class="section__head-text">
           <div class="section__label">Процесс</div>
-          <h2 class="section__title">Как работаю</h2>
+          <h2 class="section__title">Как проходит работа</h2>
         </div>
       </div>
       <div class="process-grid reveal">
         <article class="process-step">
           <div class="process-step__num">01</div>
           <h3 class="process-step__title">Задача</h3>
-          <p class="process-step__text">Пишете, что нужно. Уточняю детали и сроки.</p>
+          <p class="process-step__text">Вы коротко описываете задачу. Я задаю вопросы и уточняю сроки.</p>
         </article>
         <article class="process-step">
           <div class="process-step__num">02</div>
           <h3 class="process-step__title">Оценка</h3>
-          <p class="process-step__text">Называю вилку по цене и сроку. Согласуем минимум для старта.</p>
+          <p class="process-step__text">Называю ориентир по цене и сроку. Согласуем объём работы.</p>
         </article>
         <article class="process-step">
           <div class="process-step__num">03</div>
           <h3 class="process-step__title">Разработка</h3>
-          <p class="process-step__text">Показываю демо в Telegram или по ссылке.</p>
+          <p class="process-step__text">Показываю рабочий результат по ссылке или в Telegram.</p>
         </article>
         <article class="process-step">
           <div class="process-step__num">04</div>
           <h3 class="process-step__title">Сдача</h3>
-          <p class="process-step__text">Запускаю, даю инструкцию, коротко сопровождаю.</p>
+          <p class="process-step__text">Запускаю проект, передаю инструкцию и отвечаю на вопросы после сдачи.</p>
         </article>
       </div>
     </div>
@@ -951,10 +917,10 @@
   <section class="cta" id="contact">
     <div class="container">
       <div class="cta__panel reveal">
-        <h2 class="cta__title">Есть задача — напишите</h2>
-        <p class="cta__text">Коротко: бот, сайт или сбор данных. Отвечу с вопросами и ориентиром по срокам и цене.</p>
+        <h2 class="cta__title">Обсудим ваш бот или сайт</h2>
+        <p class="cta__text">Расскажите, что сейчас делаете вручную или какой сайт нужен. Уточню детали и назову ориентир по цене и сроку.</p>
         <div class="cta__actions">
-          <a href="#" class="btn btn--primary site-link" data-site-link="telegram">Telegram</a>
+          <a href="#" class="btn btn--primary site-link" data-site-link="telegram">Написать в Telegram</a>
           <a href="#" class="btn btn--ghost site-link" data-site-link="kwork">Kwork</a>
         </div>
       </div>
@@ -968,14 +934,8 @@
     </div>
   </footer>
 
-  <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить оформление">
-    <span class="theme-toggle__dot" aria-hidden="true"></span>
-    <span id="themeToggleLabel">Тёплый dark</span>
-  </button>
-
   <script src="js/site-config.js"></script>
   <script src="js/apply-site-config.js"></script>
-  <script src="js/signal-rain.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
