@@ -2,13 +2,13 @@
    Toggle via html[data-theme="neon"] keeps the calm look as default brand. */
 
 html[data-theme="neon"] {
-  --ink: #14110f;
-  --ink-2: #1c1815;
-  --ink-3: #26201c;
-  --surface: #2a241f;
+  --ink: #1a1613;
+  --ink-2: #211c18;
+  --ink-3: #2b241f;
+  --surface: #322b25;
   --accent: #c4784a;
   --accent-dim: rgba(196, 120, 74, 0.12);
-  --accent-glow: rgba(196, 120, 74, 0.2);
+  --accent-glow: rgba(196, 120, 74, 0.22);
   --text: #f3eee6;
   --muted: #a89a8c;
   --border: rgba(243, 238, 230, 0.1);
@@ -17,8 +17,8 @@ html[data-theme="neon"] {
 
 html[data-theme="neon"] body {
   background:
-    radial-gradient(ellipse 70% 45% at 50% -15%, rgba(196, 120, 74, 0.06), transparent 55%),
-    radial-gradient(ellipse 50% 35% at 100% 80%, rgba(243, 238, 230, 0.03), transparent 50%),
+    radial-gradient(ellipse 72% 48% at 48% -12%, rgba(196, 120, 74, 0.1), transparent 58%),
+    radial-gradient(ellipse 46% 34% at 100% 78%, rgba(243, 238, 230, 0.045), transparent 52%),
     var(--ink);
 }
 
