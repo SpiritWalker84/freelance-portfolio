@@ -30,7 +30,6 @@
         <a href="#contact">Контакт</a>
       </nav>
       <div class="header__actions">
-        <a href="https://github.com/SpiritWalker84" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
         <a href="#" class="btn btn--primary site-link" data-site-link="telegram">Написать в Telegram</a>
       </div>
       <button class="menu-toggle" id="menuToggle" aria-label="Меню">Меню</button>
@@ -43,15 +42,19 @@
     <div class="container hero__content">
       <div class="hero__layout">
       <div class="hero__main">
-        <div class="prod-label">Боты · сайты · заявки</div>
+        <div class="prod-label">Ринат · боты · сайты · заявки</div>
         <h1 class="hero__title">Хватит терять заявки&nbsp;— бот <span class="hero__shimmer">принесёт их в&nbsp;Telegram</span></h1>
         <p class="hero__lead">
-          Разрабатываю Telegram-ботов и сайты для бизнеса: клиент оставляет контакт — вы сразу видите заявку в Telegram или таблице. Запущу и объясню, как всё работает.
+          Клиент оставляет контакт — вы сразу видите заявку в Telegram или таблице. Запущу и объясню, как пользоваться.
         </p>
         <div class="hero__actions">
           <a href="#contact" class="btn btn--primary">Обсудить задачу</a>
-          <a href="#" class="btn btn--ghost site-link" data-site-link="kwork">Смотреть на Kwork</a>
         </div>
+        <p class="hero__sublink">
+          <a href="#case-landings">Превью лендингов</a>
+          <span aria-hidden="true">·</span>
+          <a href="#" class="site-link" data-site-link="kwork">Kwork</a>
+        </p>
       </div>
 
       <div class="hero__aside">
@@ -113,29 +116,6 @@
         </div>
             </div>
           </div>
-      <div class="hero__benefits" aria-label="Что вы получите">
-        <div class="hero__benefit">
-          <span class="hero__benefit-num">01</span>
-            <div>
-            <strong>Заявки не теряются</strong>
-            <span>Приходят в Telegram и сохраняются в таблице</span>
-          </div>
-        </div>
-        <div class="hero__benefit">
-          <span class="hero__benefit-num">02</span>
-            <div>
-            <strong>Меньше ручной работы</strong>
-            <span>Бот собирает контакты и отвечает на частые вопросы</span>
-          </div>
-        </div>
-        <div class="hero__benefit">
-          <span class="hero__benefit-num">03</span>
-            <div>
-            <strong>Понятно, что делать дальше</strong>
-            <span>Передаю доступы, запускаю и объясняю работу</span>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -473,37 +453,37 @@
           </div>
         </details>
 
-        <details class="case-acc reveal">
+        <details class="case-acc case-acc--featured reveal" id="case-landings" open>
           <summary class="case-acc__summary">
             <span class="case-acc__num">03</span>
             <div class="case-acc__head">
-              <div class="case-acc__tags">Сайты</div>
+              <div class="case-acc__tags">Сайты · featured</div>
               <h3 class="case-acc__title">Лендинги с формой заявки</h3>
-              <p class="case-acc__teaser">Клиент оставляет заявку прямо на сайте</p>
+              <p class="case-acc__teaser">Клиент оставляет заявку прямо на сайте — ниже превью собранных страниц</p>
             </div>
             <span class="case-acc__chev" aria-hidden="true"></span>
           </summary>
           <div class="case-acc__panel">
-            <div class="case-acc__grid">
+            <div class="case-acc__grid case-acc__grid--story">
               <div class="case-acc__block">
-                <span class="case-acc__label">Проблема</span>
-                <p>Нужен сайт, где клиенту понятно, что делать, а заявка действительно доходит.</p>
+                <span class="case-acc__label">Контекст</span>
+                <p>Нужен короткий сайт под услугу: с телефона понятно, что предлагают, и заявка реально доходит менеджеру — не в пустую форму.</p>
               </div>
               <div class="case-acc__block">
-                <span class="case-acc__label">Решение</span>
-                <p>Собрал лендинги, подключил формы и запустил их.</p>
+                <span class="case-acc__label">Процесс</span>
+                <p>Собрал структуру и блоки, подключил форму на сервер, проверил отправку с телефона, выложил демо. Правки по текстам и блокам — до запуска.</p>
               </div>
               <div class="case-acc__block">
                 <span class="case-acc__label">Результат</span>
-                <p>Клиент отправляет запрос с сайта, менеджер получает данные для ответа.</p>
+                <p>Клиент отправляет запрос с сайта, менеджер получает имя, контакт и задачу. Живые URL с VPS сейчас недоступны — ниже скрины собранных страниц.</p>
               </div>
             </div>
             <div class="case-acc__media showcase">
-              <a href="http://5.35.94.25/landing2/" class="showcase__card" target="_blank" rel="noopener">
+              <div class="showcase__card">
                 <div class="browser">
                   <div class="browser__bar">
                     <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                    <span class="browser__url">5.35.94.25/landing2</span>
+                    <span class="browser__url">превью · интерьеры</span>
                   </div>
                   <div class="browser__screen">
                     <img src="images/showcase/interior.webp" alt="Лендинг студии интерьеров FORM" loading="lazy" width="800" height="500">
@@ -514,12 +494,12 @@
                   <strong>Студия интерьеров</strong>
                   <span>Главный экран, портфолио, форма заявки</span>
                 </div>
-              </a>
-              <a href="http://5.35.94.25/landing1/" class="showcase__card" target="_blank" rel="noopener">
+              </div>
+              <div class="showcase__card">
                 <div class="browser">
                   <div class="browser__bar">
                     <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                    <span class="browser__url">/landing1</span>
+                    <span class="browser__url">превью · материалы</span>
                   </div>
                   <div class="browser__screen">
                     <img src="images/showcase/acril.webp" alt="Лендинг Senosan / Пластик Акрил" loading="lazy" width="600" height="400">
@@ -530,12 +510,12 @@
                   <strong>Пластик Акрил</strong>
                   <span>Каталог фасадов, форма заявки на сервере</span>
                 </div>
-              </a>
-              <a href="http://5.35.94.25/landing3/" class="showcase__card" target="_blank" rel="noopener">
+              </div>
+              <div class="showcase__card">
                 <div class="browser">
                   <div class="browser__bar">
                     <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                    <span class="browser__url">/landing3</span>
+                    <span class="browser__url">превью · каталог</span>
                   </div>
                   <div class="browser__screen">
                     <img src="images/showcase/banya.webp" alt="Лендинг BanyaWood" loading="lazy" width="600" height="400">
@@ -545,8 +525,8 @@
                   <span class="showcase__tag">Каталог</span>
                   <strong>BanyaWood</strong>
                   <span>Каталог бань, галерея, заявка на расчёт</span>
-          </div>
-        </a>
+                </div>
+              </div>
               <div class="showcase__card showcase__card--ui">
                 <div class="browser">
                   <div class="browser__bar">
@@ -581,7 +561,8 @@
               </div>
             </div>
             <div class="case-acc__actions">
-              <a href="https://github.com/SpiritWalker84" class="case-row__link" target="_blank" rel="noopener">GitHub</a>
+              <a href="#contact" class="btn btn--primary">Обсудить похожий сайт</a>
+              <a href="https://github.com/SpiritWalker84" class="case-row__link case-row__link--muted" target="_blank" rel="noopener">GitHub</a>
             </div>
           </div>
         </details>
