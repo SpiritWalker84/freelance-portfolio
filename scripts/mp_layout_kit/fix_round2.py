@@ -133,10 +133,17 @@ def chair_05():
     # measure content width for compact centered panel
     tw = d.textlength(title, font=f_title)
     sw = d.textlength(sub, font=f_sub)
-    chip_ws = [d.textlength(c, font=f_chip) + 36 for c in chips]
-    chips_total = sum(chip_ws) + 16 * (len(chips) - 1)
+    chip_pad_x, chip_pad_y = 22, 14
+    chip_boxes = []
+    for c in chips:
+        bb = d.textbbox((0, 0), c, font=f_chip)
+        cw = (bb[2] - bb[0]) + chip_pad_x * 2
+        ch = (bb[3] - bb[1]) + chip_pad_y * 2
+        chip_boxes.append((c, cw, ch))
+    chip_h = max(ch for _, _, ch in chip_boxes)
+    chips_total = sum(cw for _, cw, _ in chip_boxes) + 16 * (len(chips) - 1)
     content_w = max(tw, sw, chips_total)
-    pad_x, pad_y = 40, 28
+    pad_x = 40
     panel_w = int(content_w + pad_x * 2)
     panel_h = 200
     px0 = (W - panel_w) // 2
@@ -145,14 +152,21 @@ def chair_05():
     out = Image.alpha_composite(out, overlay)
     draw = ImageDraw.Draw(out)
 
-    draw.text((px0 + (panel_w - tw) / 2, py0 + 24), title, font=f_title, fill=(255, 255, 255))
-    draw.text((px0 + (panel_w - sw) / 2, py0 + 72), sub, font=f_sub, fill=(230, 225, 220))
+    draw.text((px0 + panel_w / 2, py0 + 42), title, font=f_title, fill=(255, 255, 255), anchor="mt")
+    draw.text((px0 + panel_w / 2, py0 + 83), sub, font=f_sub, fill=(230, 225, 220), anchor="mt")
 
     x = px0 + (panel_w - chips_total) / 2
     cy = py0 + 120
-    for chip, cw in zip(chips, chip_ws):
-        draw.rounded_rectangle((x, cy, x + cw, cy + 44), 16, fill=(255, 255, 255))
-        draw.text((x + 18, cy + 10), chip, font=f_chip, fill=(40, 35, 30))
+    for chip, cw, _ in chip_boxes:
+        draw.rounded_rectangle((x, cy, x + cw, cy + chip_h), 16, fill=(255, 255, 255))
+        # anchor=mm + slight optical nudge (Segoe Cyrillic reads high/right)
+        draw.text(
+            (x + cw / 2 - 0.5, cy + chip_h / 2 + 1.5),
+            chip,
+            font=f_chip,
+            fill=(40, 35, 30),
+            anchor="mm",
+        )
         x += cw + 16
 
     out.convert("RGB").save(IMG / "case1" / "05_studio_product.png", optimize=True)
@@ -207,21 +221,21 @@ def chair_07():
     draw = ImageDraw.Draw(out)
 
     text_center(draw, "В чём разница", 48, fnt(44, True), ink)
-    text_center(draw, "это кресло и типичный вариант", 112, fnt(24), muted)
+    text_center(draw, "наше и обычное кресло", 112, fnt(24), muted)
 
     thumb = fit_contain(studio, (300, 280), pad=0.88, bg=(250, 247, 242))
     paste_rounded(out, thumb, ((W - 300) // 2, 165), 22)
 
     draw.rounded_rectangle((40, 490, 440, 1145), 28, fill=(255, 255, 255))
     draw.rounded_rectangle((460, 490, 860, 1145), 28, fill=(252, 245, 242))
-    draw.text((80, 520), "Это кресло", font=fnt(30, True), fill=(46, 125, 80))
-    draw.text((500, 520), "Типичный вариант", font=fnt(26, True), fill=(180, 70, 60))
+    draw.text((80, 520), "Наше кресло", font=fnt(30, True), fill=(46, 125, 80))
+    draw.text((500, 520), "Обычное кресло", font=fnt(26, True), fill=(180, 70, 60))
 
     rows = [
-        ("выдерживает до 120 кг", "часто до 80–90 кг"),
+        ("выдерживает до 120 кг", "обычно до 80–90 кг"),
         ("мягкая ткань букле", "гладкая синтетика"),
-        ("высота сиденья 45 см", "часто ниже или не пишут"),
-        ("ножки из дерева", "часто пластик"),
+        ("высота сиденья 45 см", "высота не указывается"),
+        ("ножки из дерева", "обычно из пластика"),
     ]
     y = 610
     for ours, theirs in rows:
@@ -395,14 +409,14 @@ def update_copy():
     }
     data["case1_chair"]["07_compare"] = {
         "title": "В чём разница",
-        "sub": "это кресло и типичный вариант",
-        "ours_label": "Это кресло",
-        "theirs_label": "Типичный вариант",
+        "sub": "наше и обычное кресло",
+        "ours_label": "Наше кресло",
+        "theirs_label": "Обычное кресло",
         "rows": [
-            ["выдерживает до 120 кг", "часто до 80–90 кг"],
+            ["выдерживает до 120 кг", "обычно до 80–90 кг"],
             ["мягкая ткань букле", "гладкая синтетика"],
-            ["высота сиденья 45 см", "часто ниже или не пишут"],
-            ["ножки из дерева", "часто пластик"],
+            ["высота сиденья 45 см", "высота не указывается"],
+            ["ножки из дерева", "обычно из пластика"],
         ],
     }
     data["case2_shelf"]["02_lifestyle"] = {
